@@ -8,7 +8,7 @@
     <body>
     <h1>게시물 수정</h1>
     <hr>
-        <form method="post" action="/board/update">
+        <form method="post" action="/update">
         <!--폼 생성-->
         <div>
             <table width="650" border="1" cellspacing="0" cellpadding="5">
@@ -39,8 +39,8 @@
             <table>
                 <tr>
                     <td width=600></td>
-                    <td><input type ="button" value="취소" onclick="location.href='./e_01.jsp'"></td>
                     <td><input type ="submit" value="쓰기"></td>
+                    <td><input type ="button" value="취소" onclick="location.href='./list'"></td>
                     <!--취소: 목록 페이지로 이동, 쓰기: 입력 페이지로 이동, 삭제:삭제 페이지로 이동-->
                 </tr>
             </table>

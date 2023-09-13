@@ -36,8 +36,8 @@
             <table>
                 <tr>
                     <td width=550></td>
-                    <td><input type ="button" value="취소" onclick="location.href='./e_01.jsp'"></td>
                     <td><input type ="submit" value="쓰기"></td>
+                    <td><input type ="button" value="취소" onclick="location.href='./list'"></td>
                     <!--취소: 목록 페이지로 이동, 쓰기: 입력 페이지로 이동-->
                 </tr>
             </table>

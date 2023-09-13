@@ -19,6 +19,16 @@
 						<th width="50" align="right">조회수</th>
 					</tr>	
 				</thead>
+					<tbody>
+						<c:forEach items="${list.content}" var="list">
+							<tr>
+								<td width="50" align="center">${list.id}</td>
+								<td width="400" align="left"><a href="read?key=${list.id}">${list.title}</a></td> 
+		 				 		<td width="100" align="center">${list.date}</td>
+								<td width="50" align="center">${list.viewcnt}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
 				<%-- <tbody>
 					<c:forEach items="${list.content}" var="list">
 						<tr>
