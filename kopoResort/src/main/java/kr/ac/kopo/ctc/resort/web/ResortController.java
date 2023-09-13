@@ -55,8 +55,8 @@ public class ResortController {
 	
 	@RequestMapping(value = "read")
 	public String read(Model model, @RequestParam("key") Long num) throws Exception {
-		serv.viewCnt(num);
 		ResortDomain read = serv.read(num);
+		serv.viewCnt(read);
 		model.addAttribute("read", read);
 		return "board/read";
 	}

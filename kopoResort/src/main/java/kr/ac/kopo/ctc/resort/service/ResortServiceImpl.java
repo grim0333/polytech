@@ -59,10 +59,11 @@ public class ResortServiceImpl implements ResortService {
 	}
 
 	@Override
-	public boolean viewCnt(Long num) throws Exception {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public void viewCnt(ResortDomain post) throws Exception {
+            post.setViewcnt(post.getViewcnt() + 1);
+            resortRepo.save(post);
+    }
+	
 
 	@Override
 	public Page<ResortDomain> pageList(Pageable page) {

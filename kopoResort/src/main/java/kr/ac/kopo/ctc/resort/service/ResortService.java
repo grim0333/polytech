@@ -18,7 +18,7 @@ public interface ResortService {
 	
 	public void delete(Long del) throws Exception;
 	
-	public boolean viewCnt(Long num) throws Exception;
+	public void viewCnt(ResortDomain post) throws Exception;
 	
 	public Page<ResortDomain> pageList(Pageable page);
 	
