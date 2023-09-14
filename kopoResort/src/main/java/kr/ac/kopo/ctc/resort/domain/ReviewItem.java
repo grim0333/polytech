@@ -2,6 +2,7 @@ package kr.ac.kopo.ctc.resort.domain;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class ReviewItem {
 	@Column
 	private Integer viewcnt;
 	
-	@OneToMany(mappedBy = "reviewItem") // 댓글과의 연관관계 설정, 'boardItem'은 Comment 엔티티의 boardItem 속성과 동일하게 매핑되어야 함
+	@OneToMany(mappedBy = "reviewItem", cascade = CascadeType.REMOVE) // 댓글과의 연관관계 설정, 'boardItem'은 Comment 엔티티의 boardItem 속성과 동일하게 매핑되어야 함
     private List<ReviewComment> comments;
 	
 	public Long getId() {
