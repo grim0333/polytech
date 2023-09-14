@@ -214,5 +214,15 @@ public class ResortController {
 		reviewComServ.comDelete(id);
 		return "redirect:revList";
 	}
+	
+	@RequestMapping(value = "/resvList")
+	public String showList() {
+		return "reserve/resvList";
+	}
+	
+	@RequestMapping(value = "/resvOne")
+	public String showOne() {
+		return "reserve/resvOne";
+	}
 }
 
