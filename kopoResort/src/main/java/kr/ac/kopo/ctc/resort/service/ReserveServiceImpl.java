@@ -37,8 +37,7 @@ public class ReserveServiceImpl implements ReserveService {
 
 	@Override
 	public void update(ReserveItem up) throws Exception {
-		// TODO Auto-generated method stub
-		
+		dao.update(up);
 	}
 
 	@Override

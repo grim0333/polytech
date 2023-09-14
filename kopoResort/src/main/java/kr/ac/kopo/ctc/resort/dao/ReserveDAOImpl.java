@@ -33,8 +33,7 @@ public class ReserveDAOImpl implements ReserveDAO {
 
 	@Override
 	public void update(ReserveItem up) throws Exception {
-		// TODO Auto-generated method stub
-		
+		resvRepo.save(up);
 	}
 
 	@Override

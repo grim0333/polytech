@@ -29,5 +29,4 @@ public interface ReserveRepository extends JpaRepository<ReserveItem, Long> {
 	
 	@Query("SELECT MAX(d.resvDate) FROM ReserveItem d")
     Date findLastDate();
-
 }

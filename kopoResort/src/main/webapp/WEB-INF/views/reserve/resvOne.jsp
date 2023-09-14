@@ -1,66 +1,65 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>øπæ‡«œ±‚</title>
+<meta charset="utf-8">
+<title>ÏòàÏïΩÌïòÍ∏∞</title>
 </head>
-<body>
-	<h1>øπæ‡ªÛ»≤</h1>
-	<div style="width:900;">
-	<hr>
-	<form method="post" action="/revPost">
-        <!--∆˚ ª˝º∫-->
-        <%
-	        String date = request.getParameter("date");
-		    String room = request.getParameter("room");
-		    if (date == null) {
-	            date = "";
-	        }
-		%>
-        <div>
-            <table width="650" border="1" cellspacing="0" cellpadding="5">
-            <!--≈◊¿Ã∫Ì ª˝º∫-->
-            	<tr>
-                    <td>º∫∏Ì</td>
-                    <td><input type="text" name="name" value=""></td>
-                </tr>
-                <tr>
-                    <td>øπæ‡¿œ¿⁄</td>
-                    <td><input type="text" name="date" value="<%=date%>"></td>
-                </tr>
-                <tr>
-                    <td>øπæ‡πÊ</td>
-                    <td>
-                    	<select name="room">
-					        <option value="1" <% if ("1".equals(request.getParameter("room"))) { %>selected<% } %>>VIP∑Î</option>
-					        <option value="2" <% if ("2".equals(request.getParameter("room"))) { %>selected<% } %>>¿œπ›∑Î</option>
-					        <option value="3" <% if ("3".equals(request.getParameter("room"))) { %>selected<% } %>>ΩÃ±€∑Î</option>
-					    </select>
-					</td>
-                </tr>
-                <tr>
-                    <td>¡÷º“</td>
-                    <td><input type="text" name="addr" value=""></td>
-                </tr>
-                <tr>
-                    <td>¿¸»≠π¯»£</td>
-                    <td><input type="text" name="telnum" value=""></td>
-                </tr>
-                <tr>
-                    <td>¿‘±›¿⁄∏Ì</td>
-                    <td><input type="text" name="inName" value=""></td>
-                </tr>
-                <tr>
-                    <td>≥≤±‚Ω«∏ª</td>
-                    <td><input type="text" name="comment" value=""></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input type ="submit" value="¿¸º€"></td>
-                </tr>
-            </table>
+	<body>
+	<h1>ÏòàÏïΩÏÉÅÌô©</h1>
+		<div style="width:900;">
+		<hr>
+			<form method="post" action="/resvWrite">
+	        <!--Ìèº ÏÉùÏÑ±-->
+	        <%
+		        String date = request.getParameter("date");
+			    String room = request.getParameter("room");
+			    if (date == null) {
+		            date = "";
+		        }
+			%>
+	            <table width="650" border="1" cellspacing="0" cellpadding="5">
+	            <!--ÌÖåÏù¥Î∏î ÏÉùÏÑ±-->
+	            	<tr>
+	                    <td>ÏÑ±Î™Ö</td>
+	                    <td><input type="text" name="name" value=""></td>
+	                </tr>
+	                <tr>
+	                    <td>ÏòàÏïΩÏùºÏûê</td>
+	                    <td><input type="text" name="resvDate" value="<%=date%>"></td>
+	                </tr>
+	                <tr>
+	                    <td>ÏòàÏïΩÎ∞©</td>
+	                    <td>
+	                    	<select name="room">
+						        <option value="1" <% if ("1".equals(request.getParameter("room"))) { %>selected<% } %>>VIPÎ£∏</option>
+						        <option value="2" <% if ("2".equals(request.getParameter("room"))) { %>selected<% } %>>ÏùºÎ∞òÎ£∏</option>
+						        <option value="3" <% if ("3".equals(request.getParameter("room"))) { %>selected<% } %>>Ïã±Í∏ÄÎ£∏</option>
+						    </select>
+						</td>
+	                </tr>
+	                <tr>
+	                    <td>Ï£ºÏÜå</td>
+	                    <td><input type="text" name="addr" value=""></td>
+	                </tr>
+	                <tr>
+	                    <td>Ï†ÑÌôîÎ≤àÌò∏</td>
+	                    <td><input type="text" name="telnum" value=""></td>
+	                </tr>
+	                <tr>
+	                    <td>ÏûÖÍ∏àÏûêÎ™Ö</td>
+	                    <td><input type="text" name="inName" value=""></td>
+	                </tr>
+	                <tr>
+	                    <td>ÎÇ®Í∏∞Ïã§Îßê</td>
+	                    <td><input type="text" name="comment" value=""></td>
+	                </tr>
+	                <tr>
+	                    <td colspan="2" align="center"><input type ="submit" value="Ï†ÑÏÜ°"></td>
+	                </tr>
+	            </table>
+        	</form>
         </div>
-        </form>
 	</body>
 </html>

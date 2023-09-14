@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.ac.kopo.ctc.resort.domain.ReserveItem;
 import kr.ac.kopo.ctc.resort.repository.ReserveRepository;
 import kr.ac.kopo.ctc.resort.service.DataGenerateService;
 import kr.ac.kopo.ctc.resort.service.ReserveService;
@@ -21,7 +24,6 @@ public class ReserveController {
 	
 	@Autowired
 	ReserveService serv;
-	
 
 	@GetMapping(value="resvList")
     public String list(Model model) throws Exception {
@@ -36,5 +38,15 @@ public class ReserveController {
         return "redirect:resvList";
     }
     
+    @RequestMapping(value="resvWrite")
+    public String resvWrt(Model model) {
+        return "reserve/resvWrite";
+    }
     
+    @RequestMapping(value = "resvUpdate", method = RequestMethod.POST)
+    public String resvUp(Model model, ReserveItem up) throws Exception {
+        serv.update(up);
+        return "redirect:resvList";
+    }
+
 }

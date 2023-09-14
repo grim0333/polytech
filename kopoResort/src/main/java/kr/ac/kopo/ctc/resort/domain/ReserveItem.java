@@ -1,5 +1,7 @@
 package kr.ac.kopo.ctc.resort.domain;
 
+
+
 import java.util.Date;
 
 import jakarta.persistence.Column;

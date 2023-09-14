@@ -20,18 +20,17 @@ public class DataGenerateService {
 
         // 현재 날짜를 기준으로 30일 분량의 데이터 생성
         for (int i = 0; i < 30; i++) {
-        	Date nextDate = calendar.getTime();
-
+        	Date date = calendar.getTime();
             ReserveItem newData1 = new ReserveItem();
-			newData1.setResvDate(nextDate);
+			newData1.setResvDate(date);
 			newData1.setRoom(1); // 키 값을 제외하고 비어있는 데이터 저장
 			resvRepo.save(newData1);
 			ReserveItem newData2 = new ReserveItem();
-			newData2.setResvDate(nextDate);
+			newData2.setResvDate(date);
 			newData2.setRoom(2); // 키 값을 제외하고 비어있는 데이터 저장
 			resvRepo.save(newData2);
 			ReserveItem newData3 = new ReserveItem();
-			newData3.setResvDate(nextDate);
+			newData3.setResvDate(date);
 			newData3.setRoom(3); // 키 값을 제외하고 비어있는 데이터 저장
 			resvRepo.save(newData3);
 
