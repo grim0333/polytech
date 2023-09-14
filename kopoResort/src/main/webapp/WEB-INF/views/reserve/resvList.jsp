@@ -3,6 +3,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.sql.*,javax.sql.*,java.io.*, java.util.*, java.text.SimpleDateFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,6 +37,16 @@
 					document.body.appendChild(form);
 					form.submit();
 	    	}
+	    	function date(curDate){
+	    		
+	    	}
+	    	function dateColor(dayStr){
+	    		 if (dayStr.equals("토")) {
+                     cssClass = "blue-text";
+                 } else if (dayStr.equals("일")) {
+                     cssClass = "red-text";
+                 }
+	    	}
 	    </script>
     </head>
     <body>
@@ -49,45 +60,45 @@
 					<td width="200">일반룸</td>
 					<td width="200">싱글룸</td>
 				</tr>
-				<%
-	                java.util.Date currentDate = new java.util.Date();
-	                java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
-	                java.text.SimpleDateFormat dayFormat = new java.text.SimpleDateFormat("E"); // 요일 포맷 추가
-	                java.util.Calendar calendar = java.util.Calendar.getInstance();
-	
-	                // 현재 날짜로부터 30일 동안의 날짜, 요일, 내용을 생성하여 테이블에 추가
-	                for (int i = 0; i < 30; i++) {
-	                    calendar.setTime(currentDate);
-	                    calendar.add(java.util.Calendar.DAY_OF_MONTH, i);
-	
-	                    String dateStr = dateFormat.format(calendar.getTime());
-	                    String dayStr = dayFormat.format(calendar.getTime());
-	                    String cssClass = ""; // 초기화
-
-	                    // 토요일인 경우 파란색, 일요일인 경우 빨간색 스타일 적용
-	                    if (dayStr.equals("토")) {
-	                        cssClass = "blue-text";
-	                    } else if (dayStr.equals("일")) {
-	                        cssClass = "red-text";
-	                    }
-	            %>
-	            <tr align="center">
-	                <td class="<%= cssClass %>"><%= dateStr %>(<%= dayStr %>)</td>
-	                <td>
-	                	<a href="javascript:goPost('<%= dateStr %>', '1')">예약가능</a>
-	                </td>
-					<td>
-	                	<a href="javascript:goPost('<%= dateStr %>', '2')">예약가능</a>
-	                </td>
-	                <td>
-				       	<a href="javascript:goPost('<%= dateStr %>', '3')">예약가능</a>
-	                </td>
-	            </tr>
-	            <%
-	                }
-	            %>
+	            <c:forEach items="${list}" var="row">
+			    <tr align="center">
+			        <c:set var="date" value="${row[0]}" />
+				    <c:set var="dateStr"><fmt:formatDate pattern="yyyy-MM-dd" value="${date}" /></c:set>
+					<c:set var="dayStr"><fmt:formatDate pattern="E" value="${date}" /></c:set>
+				    <c:set var="cssClass">
+				        <c:choose>
+				            <c:when test="${dayStr eq '토'}">blue-text</c:when>
+				            <c:when test="${dayStr eq '일'}">red-text</c:when>
+				            <c:otherwise></c:otherwise>
+				        </c:choose>
+				    </c:set>
+			        <td class="${cssClass}">${dateStr}(${dayStr})</td>
+			        <td><c:choose>
+			        		<c:when test="${row[1] == null}">
+			        			<a href="javascript:goPost('${dateStr}','1')">예약가능</a>
+				        	</c:when>
+				        <c:otherwise>${row[1]}</c:otherwise>
+				    	</c:choose>
+				    </td>
+			        <td><c:choose>
+			        		<c:when test="${row[2] == null}">
+			        			<a href="javascript:goPost('${dateStr}','2')">예약가능</a>
+				        	</c:when>
+				        <c:otherwise>${row[2]}</c:otherwise>
+				    	</c:choose>
+				    </td>
+			        <td><c:choose>
+			        		<c:when test="${row[3] == null}">
+			        			<a href="javascript:goPost('${dateStr}','3')">예약가능</a>
+				        	</c:when>
+				        <c:otherwise>${row[3]}</c:otherwise>
+				    	</c:choose>
+				    </td>
+			    </tr>
+				</c:forEach>
 	            <tr>
-	            	<td colspan="4" height="25"></td>
+	            	<td colspan="3" height="25"></td>
+	            	<td><a href="/generateData">초기화</a></td>
 	            </tr>
 			</table>
 		</div>

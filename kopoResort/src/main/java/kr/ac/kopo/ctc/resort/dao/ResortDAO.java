@@ -5,7 +5,7 @@ import java.util.List;
 import kr.ac.kopo.ctc.resort.domain.ResortDomain;
 
 public interface ResortDAO {
-public void create(ResortDomain content) throws Exception;
+	public void create(ResortDomain content) throws Exception;
 	
 	public ResortDomain read(Long num) throws Exception;
 	

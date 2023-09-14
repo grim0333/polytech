@@ -29,27 +29,6 @@
 							</tr>
 						</c:forEach>
 					</tbody>
-				<%-- <tbody>
-					<c:forEach items="${list.content}" var="list">
-						<tr>
-							<td width="50" align="center">${list.id}</td>
-							<td width="400" align="left"><a href="read?key=${list.id}">${list.title}</a></td> 
-	 				 		<td width="100" align="center">${list.date}</td>
-							<td width="50" align="center">${list.viewcnt}</td>
-						</tr>
-						<c:if test="${not empty list.comments}">
-				            <tr>
-				            <c:forEach items="${list.comments}" var="comment">
-				                <tr>
-				                    <td width="50" align="center"></td>
-									<td width="400" align="left"><a href="comm/read?key=${comment.comId}">&nbsp;=&gt;${comment.comTitle}</a></td> 
-			 				 		<td width="100" align="center">${comment.comDate}</td>
-									<td width="50" align="center">${comment.comViewCnt}</td>
-				                </tr>
-				            </c:forEach>
-				        </c:if>
-					</c:forEach>
-				</tbody> --%>
 			</table>
 			<form action ="create" method="get">
             <table>
