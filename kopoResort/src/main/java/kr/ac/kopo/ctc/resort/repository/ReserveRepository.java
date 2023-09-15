@@ -14,15 +14,30 @@ public interface ReserveRepository extends JpaRepository<ReserveItem, Long> {
 	
 	List<ReserveItem> findAll();
 	
-	@Query("SELECT r.resvDate, " +
-		"MAX(CASE WHEN r.room = 1 THEN r.name END) AS name_1, " +
-		"MAX(CASE WHEN r.room = 2 THEN r.name END) AS name_2, " +
-		"MAX(CASE WHEN r.room = 3 THEN r.name END) AS name_3 " +
-		"FROM ReserveItem r " +
-		"GROUP BY r.resvDate " +
-		"ORDER BY r.resvDate")
-	List<Object[]> findAllWithPivot();
+//	@Query("SELECT r.resvDate,"
+//			+ "MAX(CASE WHEN r.room = 1 THEN r.name END) AS name_1,"
+//			+ "MAX(CASE WHEN r.room = 2 THEN r.name END) AS name_2,"
+//			+ "MAX(CASE WHEN r.room = 3 THEN r.name END) AS name_3,"
+//			+ "MAX(CASE WHEN r.room = 1 THEN r.processing END) AS processing_1,"
+//			+ "MAX(CASE WHEN r.room = 2 THEN r.processing END) AS processing_2,"
+//			+ "MAX(CASE WHEN r.room = 3 THEN r.processing END) AS processing_3 "
+//			+ "FROM ReserveItem r "
+//			+ "GROUP BY r.resvDate "
+//			+ "ORDER BY r.resvDate;")
+//	List<Object[]> findCustomData();
 
+	@Query("SELECT r.resvDate, " +
+			"MAX(CASE WHEN r.room = 1 THEN r.name END) AS name_1, " +
+			"MAX(CASE WHEN r.room = 2 THEN r.name END) AS name_2, " +
+			"MAX(CASE WHEN r.room = 3 THEN r.name END) AS name_3, " +
+			"MAX(CASE WHEN r.room = 1 THEN r.processing END) AS processing_1," +
+			"MAX(CASE WHEN r.room = 2 THEN r.processing END) AS processing_2," +
+			"MAX(CASE WHEN r.room = 3 THEN r.processing END) AS processing_3 " +
+			"FROM ReserveItem r " +
+			"GROUP BY r.resvDate " +
+			"ORDER BY r.resvDate")
+	List<Object[]> findAllWithPivot();
+	
 	ReserveItem findByResvDate(Date nextDate);
 
 	void deleteByResvDate(Date yesterday);

@@ -15,7 +15,7 @@ public class ReserveScheduler {
     @Autowired
     private ReserveRepository resvRepo;
 
-    @Scheduled(cron = "0 0 * * * *") // 매일 자정에 실행
+    @Scheduled(cron = "* * * * * *")
     public void processAndCleanupData() {
         Calendar calendar = Calendar.getInstance();
         Date currentDate = calendar.getTime();

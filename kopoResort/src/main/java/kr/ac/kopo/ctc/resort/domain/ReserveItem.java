@@ -24,6 +24,9 @@ public class ReserveItem {
 	private String name;
 	
 	@Column
+	private String addr;
+	
+	@Column
 	private String telnum;
 	
 	@Column
@@ -60,6 +63,14 @@ public class ReserveItem {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public String getTelnum() {

@@ -74,21 +74,21 @@
 				    </c:set>
 			        <td class="${cssClass}">${dateStr}(${dayStr})</td>
 			        <td><c:choose>
-			        		<c:when test="${row[1] == null}">
+			        		<c:when test="${row[4] == 0}">
 			        			<a href="javascript:goPost('${dateStr}','1')">예약가능</a>
 				        	</c:when>
 				        <c:otherwise>${row[1]}</c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
-			        		<c:when test="${row[2] == null}">
+			        		<c:when test="${row[5] == 0}">
 			        			<a href="javascript:goPost('${dateStr}','2')">예약가능</a>
 				        	</c:when>
 				        <c:otherwise>${row[2]}</c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
-			        		<c:when test="${row[3] == null}">
+			        		<c:when test="${row[6] == 0}">
 			        			<a href="javascript:goPost('${dateStr}','3')">예약가능</a>
 				        	</c:when>
 				        <c:otherwise>${row[3]}</c:otherwise>

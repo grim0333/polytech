@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ page import="java.util.*, java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +14,15 @@
 			<form method="post" action="/resvWrite">
 	        <!--폼 생성-->
 	        <%
+		        Date curDate = new java.util.Date();
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+				String wrtStr = dateFormat.format(curDate);
 		        String date = request.getParameter("date");
 			    String room = request.getParameter("room");
 			    if (date == null) {
-		            date = "";
+		            date = wrtStr;
 		        }
+			    
 			%>
 	            <table width="650" border="1" cellspacing="0" cellpadding="5">
 	            <!--테이블 생성-->
@@ -27,7 +32,7 @@
 	                </tr>
 	                <tr>
 	                    <td>예약일자</td>
-	                    <td><input type="text" name="resvDate" value="<%=date%>"></td>
+	                    <td><input type="date" name="date" value="<%=date%>"></td>
 	                </tr>
 	                <tr>
 	                    <td>예약방</td>
