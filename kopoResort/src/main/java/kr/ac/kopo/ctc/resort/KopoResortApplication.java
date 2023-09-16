@@ -9,5 +9,5 @@ public class KopoResortApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(KopoResortApplication.class, args);
 	}
-
+	
 }

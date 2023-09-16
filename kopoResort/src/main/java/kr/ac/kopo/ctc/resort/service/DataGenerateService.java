@@ -16,7 +16,7 @@ public class DataGenerateService {
 
     @Autowired
     private ReserveRepository resvRepo;
-
+    
     public void generateDataFor30Days() throws ParseException {
         Calendar calendar = Calendar.getInstance();
 

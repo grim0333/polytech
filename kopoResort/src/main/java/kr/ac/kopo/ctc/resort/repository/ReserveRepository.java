@@ -39,9 +39,13 @@ public interface ReserveRepository extends JpaRepository<ReserveItem, Long> {
 	List<Object[]> findAllWithPivot();
 	
 	ReserveItem findByResvDate(Date nextDate);
-
-	void deleteByResvDate(Date yesterday);
+	
+	void deleteByResvDateBefore(Date currentDate);
 	
 	@Query("SELECT MAX(d.resvDate) FROM ReserveItem d")
     Date findLastDate();
+	
+	void deleteByResvDateAfter(Date thirtyDaysLater);
+	
+	boolean existsByResvDateAfter(Date thirtyDaysLater);
 }
