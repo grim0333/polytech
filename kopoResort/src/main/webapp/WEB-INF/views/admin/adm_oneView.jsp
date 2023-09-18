@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>관리자 조회</title>
+<title>Insert title here</title>
 </head>
 <body>
 
