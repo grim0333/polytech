@@ -81,11 +81,9 @@
 	                    <td><input type="hidden" name="writeDate" value="<%=wrtStr %>" readonly><%=wrtStr %></td>
 	                </tr>
 	                <tr>
-	                    <td align="left">
+	                    <td align="center">
 	                    <input type ="submit" value="전송">
-	                    </td>
-	                    <td align="right">
-	                    <input type ="button" value="취소" onclick="location.href='/resvList'">
+	                    <input type="button" value="취소" onclick="history.back()">
 	                    </td>
 	                </tr>
 	            </table>

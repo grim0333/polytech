@@ -20,9 +20,8 @@ public class ReserveServiceImpl implements ReserveService {
 	ReserveRepository resvRepo;
 
 	@Override
-	public ReserveItem read(Date date, Long room) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public ReserveItem read(Date date, int room) throws Exception {
+		return dao.read(date, room);
 	}
 
 	@Override
@@ -41,8 +40,15 @@ public class ReserveServiceImpl implements ReserveService {
 	}
 
 	@Override
-	public void delete(Date date, Long room) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public void delete(Date date, int room) throws Exception {
+		ReserveItem item = resvRepo.findByResvDateAndRoom(date, room);
+		item.setAddr(null);
+		item.setComment(null);
+		item.setInName(null);
+		item.setName(null);
+		item.setProcessing(0);
+		item.setTelnum(null);
+		item.setWriteDate(null);
+		dao.update(item);
 	}
 }

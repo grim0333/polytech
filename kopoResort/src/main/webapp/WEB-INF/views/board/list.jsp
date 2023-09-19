@@ -4,10 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
-        <title>게시판 리스트</title>
+        <title>공지 게시판</title>
     </head>
     <body>
-        <h1>게시판</h1>
+        <h1>공지사항</h1>
         <div style="width:800;">
         <hr>
             <table border="1" style="width:800;">
@@ -33,8 +33,14 @@
 			<form action ="create" method="get">
             <table>
                 <tr>
-                    <td width=750></td>
-                    <td><input type ="button" value="쓰기" onclick="location.href='./create'"></td>
+                    <% if ("yes".equals(session.getAttribute("login_ok"))) { %>
+					    	<td width=750></td>
+					        <td>
+					            <input type="button" value="쓰기" onclick="location.href='./create'">
+					        </td>
+					<% } else { %>
+					        <td colspan="2"></td>
+					<% } %>
                 </tr>
             </table>
             </form>

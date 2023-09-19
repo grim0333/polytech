@@ -11,7 +11,7 @@
 <%
 	session.invalidate();
 	out.println("<h2>로그아웃 되었습니다.</h2>");
-	out.println("<input type='button' value='메인페이지' onclick=\"location.href='/main'\"/>");
+	out.println("<input type='button' value='메인페이지' onclick=\"location.href='/admLogin'\"/>");
 %>
 </body>
 </html>

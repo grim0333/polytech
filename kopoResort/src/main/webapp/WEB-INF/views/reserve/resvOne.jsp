@@ -8,7 +8,7 @@
 <title>예약하기</title>
 </head>
 	<body>
-	<h1>예약상황</h1>
+	<h1>예약하기</h1>
 		<div style="width:900;">
 		<hr>
 			<form method="post" action="/resvWrite">

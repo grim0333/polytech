@@ -16,9 +16,8 @@ public class ReserveDAOImpl implements ReserveDAO {
 	private ReserveRepository resvRepo;
 	
 	@Override
-	public ReserveItem read(Date date, Long room) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public ReserveItem read(Date date, int room) throws Exception {
+		return resvRepo.findByResvDateAndRoom(date, room);
 	}
 
 	@Override
@@ -35,11 +34,4 @@ public class ReserveDAOImpl implements ReserveDAO {
 	public void update(ReserveItem up) throws Exception {
 		resvRepo.save(up);
 	}
-
-	@Override
-	public void delete(Date date, Long room) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

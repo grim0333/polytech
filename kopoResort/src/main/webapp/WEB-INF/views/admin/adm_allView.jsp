@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> 예약상황(admin) </title>
+        <title> 예약상황(Admin) </title>
         <style>
 	        .blue-text {
 	            color: blue;
@@ -17,19 +17,19 @@
 	        }
 	    </style>
 	    <script>
-	    	function goPost(dateStr, num){
+		    function goPost(date, num){
 	    		var form = document.createElement("form");
 		            form.setAttribute("method", "post");
-		            form.setAttribute("action", "/resvOne");
+		            form.setAttribute("action", "/admOneView");
 		            
 				var dateInput = document.createElement("input");
-					dateInput.setAttribute("type", "hidden");
+					dateInput.setAttribute("type", "date");
 					dateInput.setAttribute("name", "date");
-					dateInput.setAttribute("value", dateStr);
+					dateInput.setAttribute("value", date);
 					form.appendChild(dateInput);
 				
 				var roomInput = document.createElement("input");
-					roomInput.setAttribute("type", "hidden");
+					roomInput.setAttribute("type", "text");
 					roomInput.setAttribute("name", "room");
 					roomInput.setAttribute("value", num);
 					form.appendChild(roomInput);
@@ -74,29 +74,24 @@
 				    </c:set>
 			        <td class="${cssClass}">${dateStr}(${dayStr})</td>
 			        <td><c:choose>
-			        		<c:when test="${row[4] == 0}">
-			        			<a href="javascript:goPost('${dateStr}','1')">예약가능</a>
-				        	</c:when>
-				        <c:otherwise>${row[1]}</c:otherwise>
+			        		<c:when test="${row[4] == 0}">예약가능</c:when>
+				        <c:otherwise><a href="javascript:goPost('${dateStr}','1')">${row[1]}</a></c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
-			        		<c:when test="${row[5] == 0}">
-			        			<a href="javascript:goPost('${dateStr}','2')">예약가능</a>
-				        	</c:when>
-				        <c:otherwise>${row[2]}</c:otherwise>
+			        		<c:when test="${row[5] == 0}">예약가능</c:when>
+				        <c:otherwise><a href="javascript:goPost('${dateStr}','2')">${row[2]}</a></c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
-			        		<c:when test="${row[6] == 0}">
-			        			<a href="javascript:goPost('${dateStr}','3')">예약가능</a>
-				        	</c:when>
-				        <c:otherwise>${row[3]}</c:otherwise>
+			        		<c:when test="${row[6] == 0}">예약가능</c:when>
+				        <c:otherwise><a href="javascript:goPost('${dateStr}','3')">${row[3]}</a></c:otherwise>
 				    	</c:choose>
 				    </td>
 			    </tr>
 				</c:forEach>
 	            <tr>
+	            	<td colspan="4" align="right"></td>
 	            </tr>
 			</table>
 		</div>

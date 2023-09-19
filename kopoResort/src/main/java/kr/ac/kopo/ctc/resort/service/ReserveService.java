@@ -7,7 +7,7 @@ import java.util.List;
 import kr.ac.kopo.ctc.resort.domain.ReserveItem;
 
 public interface ReserveService {
-	public ReserveItem read(Date date , Long room) throws Exception;
+	public ReserveItem read(Date date , int room) throws Exception;
 	
 	public List<ReserveItem> list() throws Exception;
 	
@@ -15,6 +15,6 @@ public interface ReserveService {
 	
 	public void update(ReserveItem up) throws Exception;
 	
-	public void delete(Date date , Long room) throws Exception;
+	public void delete(Date date , int room) throws Exception;
 	
 }

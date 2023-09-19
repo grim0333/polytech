@@ -16,7 +16,7 @@
         <title>글 보기</title>
     </head>
     <body>
-    <h1>댓글 보기</h1>
+    <h1>이용후기 게시판</h1>
     <hr>
         <form method="post" name="fm">
         <!--폼 생성-->
@@ -51,10 +51,14 @@
             </table>
             <table>
                 <tr>
+                	<% if ("yes".equals(session.getAttribute("login_ok"))) { %>
                     <td width=660></td>
-                    <td><input type ="button" value="목록" onclick="location.href='/revList'"></td>
                     <td><input type ="button" value="수정" onclick="location.href='./commModify?key='+'${param.key}'"></td>
                     <td><input type ="button" value="삭제" onclick="del(${param.key})"></td>
+                    <% } else { %>
+                    <td width=750></td>
+                    <% } %>
+                    <td><input type ="button" value="목록" onclick="location.href='/revList'"></td>
                 </tr>
             </table>
         </div>

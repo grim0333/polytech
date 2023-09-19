@@ -16,7 +16,7 @@
         <title>글 보기</title>
     </head>
     <body>
-    <h1>게시물 보기</h1>
+    <h1>이용후기 게시판</h1>
     <hr>
         <form method="post" name="fm">
         <!--폼 생성-->
@@ -51,13 +51,19 @@
             </table>
             <table>
                 <tr>
-                    <td width=600></td>
-                    <td><input type ="button" value="목록" onclick="location.href='./revList'"></td>
-                    <td><input type ="button" value="수정" onclick="location.href='./revModify?key='+'${read.id}'"></td>
-                    <td><input type ="button" value="삭제" onclick="del(${read.id})"></td>
-                    <td><input type ="button" value="답글" onclick="location.href='/commCreate?key='+'${read.id}'"></td>
-                    <!--목록: 목록 페이지로 이동, 수정: 수정 페이지로 이동-->
-                    <!--삭제: 삭제 페이지로 이동, 답글: 답글 페이지로 이동-->
+                    
+                    <% if ("yes".equals(session.getAttribute("login_ok"))) { %>
+                   		<td width=700></td>
+	                    <td><input type ="button" value="답글" onclick="location.href='/commCreate?key='+'${read.id}'"></td>
+	                    <td><input type ="button" value="목록" onclick="location.href='./revList'"></td>
+	                    <!--목록: 목록 페이지로 이동, 수정: 수정 페이지로 이동-->
+	                    <!--삭제: 삭제 페이지로 이동, 답글: 답글 페이지로 이동-->
+                    <% } else { %>
+                    	<td width=650></td>
+	                    <td><input type ="button" value="수정" onclick="location.href='./revModify?key='+'${read.id}'"></td>
+	                    <td><input type ="button" value="삭제" onclick="del(${read.id})"></td>
+	                    <td><input type ="button" value="목록" onclick="location.href='./revList'"></td>
+					<% } %>
                 </tr>
             </table>
         </div>

@@ -51,11 +51,14 @@
             </table>
             <table>
                 <tr>
-                    <td width=650></td>
+                    <% if ("yes".equals(session.getAttribute("login_ok"))) { %>
+                    <td width=660></td>
                     <td><input type ="button" value="수정" onclick="location.href='/modify?key='+'${read.id}'"></td>
                     <td><input type ="button" value="삭제" onclick="del(${read.id})"></td>
+                    <% } else { %>
+                    <td width=750></td>
+                    <% } %>
                     <td><input type ="button" value="목록" onclick="location.href='./list'"></td>
-                    <%-- <td><input type ="button" value="답글" onclick="location.href='comm/create?key='+'${read.id}'"></td> --%>
                     <!--목록: 목록 페이지로 이동, 수정: 수정 페이지로 이동-->
                     <!--삭제: 삭제 페이지로 이동, 답글: 답글 페이지로 이동-->
                 </tr>
