@@ -45,7 +45,7 @@
 				dateFormat.setLenient(false); // 엄격한 파싱 활성화
 				String wrtStr = dateFormat.format(curDate);
 				%>
-	            <table width="650" border="1" cellspacing="0" cellpadding="5">
+	            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
 	            <!--테이블 생성-->
 	            	<tr>
 	                    <td>성명</td>
@@ -81,7 +81,7 @@
 	                    <td><input type="hidden" name="writeDate" value="<%=wrtStr %>" readonly><%=wrtStr %></td>
 	                </tr>
 	                <tr>
-	                    <td align="center">
+	                    <td colspan="2" align="center">
 	                    <input type ="submit" value="전송">
 	                    <input type="button" value="취소" onclick="history.back()">
 	                    </td>

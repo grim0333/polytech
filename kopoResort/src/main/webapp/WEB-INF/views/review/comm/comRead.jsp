@@ -15,13 +15,14 @@
 	</script>
         <title>글 보기</title>
     </head>
-    <body>
-    <h1>이용후기 게시판</h1>
+    <body background="./img/desk.jpg">
+    <h1 align="center">이용후기 게시판</h1>
     <hr>
+    	<div align="center">
         <form method="post" name="fm">
         <!--폼 생성-->
-        <div>
-            <table width="800" border="1" cellspacing="0" cellpadding="5">
+        
+            <table width="800" border="1" cellspacing="0" cellpadding="5" style="background-color: white;">
             <!--테이블 생성-->
                 <tr>
                     <td width="70">번호</td>
@@ -61,7 +62,7 @@
                     <td><input type ="button" value="목록" onclick="location.href='/revList'"></td>
                 </tr>
             </table>
-        </div>
         </form>
+        </div>
     </body>
 </html>

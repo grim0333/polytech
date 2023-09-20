@@ -5,13 +5,13 @@
     <head>
         <title>새 글 입력</title>
     </head>
-    <body>
-    <h1>게시물 쓰기</h1>
+    <body background="./img/desk.jpg">
+    <h1 align="center">게시물 쓰기</h1>
     <hr>
         <form method="post" action="/revPost">
         <!--폼 생성-->
-        <div>
-            <table width="650" border="1" cellspacing="0" cellpadding="5">
+        <div align="center">
+            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
             <!--테이블 생성-->
                 <tr>
                     <td>번호</td>

@@ -7,29 +7,48 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>예약조회(Admin) </title>
-<script>
-    function submitForm(action) {
-        var form = document.getElementById("myForm");
-        if (action === "up") {
-            form.action = "/admOneChk";
-            form.submit();
-        } else if (action === "del") {
-            form.action = "/admDelete";
-            var message = "삭제하시겠습니까?";
-            if (confirm(message)) {
-                form.submit();
-            }
-        }
-    }
-</script>
-</head>
-	<body>
-	<h1>예약조회 - 관리자</h1>
-		<div style="width:900;">
+	<title>예약조회(Admin) </title>
+	<script>
+	    function submitForm(action) {
+	        var form = document.getElementById("myForm");
+	        if (action === "up") {
+	            form.action = "/admOneChk";
+	            form.submit();
+	        } else if (action === "del") {
+	            form.action = "/admDelete";
+	            var message = "삭제하시겠습니까?";
+	            if (confirm(message)) {
+	                form.submit();
+	            }
+	        }
+	    }
+	</script>
+		<%
+		    String loginOK = null;
+		    String backURL = "/admLogin";
+		    loginOK = (String)session.getAttribute("login_ok");
+		    if(loginOK == null) {
+		    	response.sendRedirect(backURL);
+		    }
+	    %>
+	    <%
+	    	String room = request.getParameter("room");
+	    	String roomStr = "";
+	    	if(room == "1"){
+	    		roomStr = "VIP룸";
+	    	}else if(room == "2"){
+	    		roomStr = "디럭스룸";
+	    	}else{
+	    		roomStr = "일반룸";
+	    	}
+	    %>
+	</head>
+	<body background="./img/wall.jpg">
+	<h1 align="center">예약조회 - 관리자</h1>
 		<hr>
+		<div style="width:900; margin-top: 100px;" align="center">
 			<form method="post" action="" id="myForm">
-	            <table width="650" border="1" cellspacing="0" cellpadding="5">
+	            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: white">
 	            <!--테이블 생성-->
 	            	<tr>
 	                    <td>성명</td>
@@ -38,16 +57,12 @@
 	                <tr>
 	                    <td>예약일자</td>
 	                    <td> <fmt:formatDate value="${view.resvDate}" pattern="yyyy-MM-dd" var="resvForm" />
-                			<input type="date" name="resvDate" value="${resvForm}"></td>
+                			<input type="date" name="resvDate" value="${resvForm}" readonly></td>
 	                </tr>
 	                <tr>
 	                    <td>예약방</td>
 	                    <td>
-	                    	<select name="room">
-							    <option value="1" <c:if test="${view.room eq '1'}">selected</c:if>>VIP룸</option>
-							    <option value="2" <c:if test="${view.room eq '2'}">selected</c:if>>일반룸</option>
-							    <option value="3" <c:if test="${view.room eq '3'}">selected</c:if>>싱글룸</option>
-							</select>
+	                    	<input type="hidden" name="room" value="${view.room}" readonly><%=roomStr %>
 						</td>
 	                </tr>
 	                <tr>
@@ -64,12 +79,12 @@
 	                </tr>
 	                <tr>
 	                    <td>남기실말</td>
-	                    <td><input type="text" name="comment" value="${view.comment}"></td>
+	                    <td><input type="text" name="comment" value="${view.comment}" readonly></td>
 	                </tr>
 	                <tr>
 	                    <td>신청일자</td>
 	                    <td><fmt:formatDate value="${view.writeDate}" pattern="yyyy-MM-dd" var="wrtForm" />
-                			<input type="text" name="writeDate" value="${wrtForm}"></td>
+                			<input type="text" name="writeDate" value="${wrtForm}" readonly></td>
 	                </tr>
 	                <tr>
 	                    <td>진행상황</td>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.ac.kopo.ctc.resort.domain.AccountDomain;
 import kr.ac.kopo.ctc.resort.domain.ReserveItem;
+import kr.ac.kopo.ctc.resort.repository.ReserveRepository;
 import kr.ac.kopo.ctc.resort.service.AccountService;
 import kr.ac.kopo.ctc.resort.service.ReserveService;
 
@@ -22,6 +23,8 @@ public class AccountController {
 	ReserveService serv;
 	@Autowired
 	AccountService accServ;
+	@Autowired
+	ReserveRepository repo;
 	
 	@RequestMapping(value="admLogin")
     public String admLogin(Model model) {
@@ -86,19 +89,19 @@ public class AccountController {
                          @RequestParam("inName") String inName,
                          @RequestParam("comment") String comment,
                          @RequestParam("processing") int processing) throws Exception {
-        ReserveItem up = new ReserveItem();
-        up.setName(name);
-        up.setResvDate(resvDate);
-        up.setRoom(room);
-        up.setAddr(addr);
-        up.setTelnum(telnum);
-        up.setInName(inName);
-        up.setComment(comment);
-        up.setWriteDate(writeDate);
-        up.setProcessing(processing);
-        
-        serv.update(up);
-        return "redirect:admView";
+			ReserveItem up = new ReserveItem();
+	        up.setName(name);
+	        up.setResvDate(resvDate);
+	        up.setRoom(room);
+	        up.setAddr(addr);
+	        up.setTelnum(telnum);
+	        up.setInName(inName);
+	        up.setComment(comment);
+	        up.setWriteDate(writeDate);
+	        up.setProcessing(processing);
+	        
+	        serv.update(up);
+	        return "redirect:admView";
     }
 	
 	@RequestMapping(value="admDelete")

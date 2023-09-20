@@ -7,7 +7,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> 예약상황(Admin) </title>
+        <title> 예약현황(Admin) </title>
+        <%
+		    String loginOK = null;
+		    String backURL = "/admLogin";
+		    loginOK = (String)session.getAttribute("login_ok");
+		    if(loginOK == null) {
+		    	response.sendRedirect(backURL);
+		    }
+	    %>
         <style>
 	        .blue-text {
 	            color: blue;
@@ -49,16 +57,16 @@
 	    	}
 	    </script>
     </head>
-    <body>
-        <h1>예약상황 - 관리자</h1>
-        <div style="width:800;">
+    <body background="./img/wall.jpg">
+        <h1 align="center">예약현황 - 관리자</h1>
+        <div style="width:800;" align="center">
         <hr>
-            <table border="1" style="width:800;">
+            <table border="1" style="width:800; background-color: white">
 				<tr align="center">
-					<td width="200">예약일자</td>
-					<td width="200">VIP룸</td>
-					<td width="200">일반룸</td>
-					<td width="200">싱글룸</td>
+					<td width="200"><b>예약일자</b></td>
+					<td width="200"><b>VIP룸</b></td>
+					<td width="200"><b>일반룸</b></td>
+					<td width="200"><b>싱글룸</b></td>
 				</tr>
 	            <c:forEach items="${list}" var="row">
 			    <tr align="center">
@@ -74,24 +82,24 @@
 				    </c:set>
 			        <td class="${cssClass}">${dateStr}(${dayStr})</td>
 			        <td><c:choose>
-			        		<c:when test="${row[4] == 0}">예약가능</c:when>
+			        		<c:when test="${row[4] == 0}">예약없음</c:when>
 				        <c:otherwise><a href="javascript:goPost('${dateStr}','1')">${row[1]}</a></c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
-			        		<c:when test="${row[5] == 0}">예약가능</c:when>
+			        		<c:when test="${row[5] == 0}">예약없음</c:when>
 				        <c:otherwise><a href="javascript:goPost('${dateStr}','2')">${row[2]}</a></c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
-			        		<c:when test="${row[6] == 0}">예약가능</c:when>
+			        		<c:when test="${row[6] == 0}">예약없음</c:when>
 				        <c:otherwise><a href="javascript:goPost('${dateStr}','3')">${row[3]}</a></c:otherwise>
 				    	</c:choose>
 				    </td>
 			    </tr>
 				</c:forEach>
 	            <tr>
-	            	<td colspan="4" align="right"></td>
+	            	<td colspan="4" align="right" height="20"></td>
 	            </tr>
 			</table>
 		</div>

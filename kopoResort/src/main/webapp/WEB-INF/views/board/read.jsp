@@ -15,13 +15,13 @@
 </script>
         <title>글 보기</title>
     </head>
-    <body>
-    <h1>게시물 보기</h1>
+    <body background="./img/desk.jpg">
+    <h1 align="center">게시물 보기</h1>
     <hr>
+    	<div align="center">
         <form method="post" name="fm">
         <!--폼 생성-->
-        <div>
-            <table width="800" border="1" cellspacing="0" cellpadding="5">
+            <table width="800" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
             <!--테이블 생성-->
                 <tr>
                     <td width="70">번호</td>
@@ -63,7 +63,7 @@
                     <!--삭제: 삭제 페이지로 이동, 답글: 답글 페이지로 이동-->
                 </tr>
             </table>
-        </div>
         </form>
+        </div>
     </body>
 </html>

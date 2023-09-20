@@ -5,14 +5,23 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 <meta charset="utf-8">
-<title> 예약수정 확인(Admin) </title>
-</head>
-	<body>
-	<h1>예약수정 확인 - 관리자</h1>
-		<div style="width:900;">
+		<title> 예약수정 확인(Admin) </title>
+		<%
+		    String loginOK = null;
+		    String backURL = "/admLogin";
+		    loginOK = (String)session.getAttribute("login_ok");
+		    if(loginOK == null) {
+		    	response.sendRedirect(backURL);
+		    }
+	    %>
+	</head>
+	<body background="./img/wall.jpg">
+	<h1 align="center">예약수정 확인 - 관리자</h1>
+		<div style="width:900;" align="center">
 		<hr>
+		<br><br><br>
 			<form method="post" action="/admUpdate">
 	        <!--폼 생성-->
 	        	<%
@@ -38,7 +47,7 @@
 				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 				dateFormat.setLenient(false); // 엄격한 파싱 활성화
 				%>
-	            <table width="650" border="1" cellspacing="0" cellpadding="5">
+	            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: white">
 	            <!--테이블 생성-->
 	            	<tr>
 	                    <td>성명</td>

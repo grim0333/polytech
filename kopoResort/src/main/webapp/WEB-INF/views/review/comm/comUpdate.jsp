@@ -5,13 +5,13 @@
     <head>
         <title>글 보기</title>
     </head>
-    <body>
+    <body background="./img/desk.jpg">
     <h1>댓글 수정</h1>
     <hr>
+        <div align="center">
         <form method="post" action="/commUpdate">
         <!--폼 생성-->
-        <div>
-            <table width="650" border="1" cellspacing="0" cellpadding="5">
+            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: white;">
             <!--테이블 생성-->
                 <tr>
                     <td>번호</td>
@@ -40,7 +40,7 @@
                     <!--취소: 목록 페이지로 이동, 쓰기: 입력 페이지로 이동, 삭제:삭제 페이지로 이동-->
                 </tr>
             </table>
-        </div>
         </form>
+        </div>
     </body>
 </html>

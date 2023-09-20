@@ -15,13 +15,13 @@
 </script>
         <title>글 보기</title>
     </head>
-    <body>
-    <h1>이용후기 게시판</h1>
+    <body background="./img/desk.jpg">
+    <h1 align="center">이용후기 게시판</h1>
     <hr>
         <form method="post" name="fm">
         <!--폼 생성-->
-        <div>
-            <table width="800" border="1" cellspacing="0" cellpadding="5">
+        <div align="center">
+            <table width="800" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
             <!--테이블 생성-->
                 <tr>
                     <td width="70">번호</td>

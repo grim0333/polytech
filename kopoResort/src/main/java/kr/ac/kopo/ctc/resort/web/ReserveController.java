@@ -56,23 +56,28 @@ public class ReserveController {
                          @RequestParam("telnum") String telnum,
                          @RequestParam("inName") String inName,
                          @RequestParam("comment") String comment) throws Exception {
-        ReserveItem up = new ReserveItem();
-        up.setName(name);
-        up.setResvDate(resvDate);
-        up.setRoom(room);
-        up.setAddr(addr);
-        up.setTelnum(telnum);
-        up.setInName(inName);
-        up.setComment(comment);
-        up.setWriteDate(writeDate);
-        up.setProcessing(1);
-        
-        serv.update(up);
-        return "redirect:resvList";
+    	ReserveItem find = repo.findByResvDateAndRoom(resvDate, room);
+    	if(find.getProcessing() == 0) {
+	        ReserveItem up = new ReserveItem();
+	        up.setName(name);
+	        up.setResvDate(resvDate);
+	        up.setRoom(room);
+	        up.setAddr(addr);
+	        up.setTelnum(telnum);
+	        up.setInName(inName);
+	        up.setComment(comment);
+	        up.setWriteDate(writeDate);
+	        up.setProcessing(1);
+	        
+	        serv.update(up);
+	        return "redirect:resvList";
+    	}else{
+    		return "errorPage";
+    	}
     }
     
-    @GetMapping(value = "error")
-    public String errorPage() {
+    @RequestMapping(value = "errorPage")
+    public String errorPage(Model model) {
     	return "/errorPage";
     }
 }

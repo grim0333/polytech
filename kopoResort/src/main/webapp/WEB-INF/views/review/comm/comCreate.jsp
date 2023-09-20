@@ -5,13 +5,13 @@
     <head>
         <title>새 글 입력</title>
     </head>
-    <body>
+    <body background="./img/desk.jpg">
     <h1>댓글 쓰기</h1>
     <hr>
+    	<div align="center">
         <form method="post" action="/commPost?key=${param.key}">
         <!--폼 생성-->
-        <div>
-            <table width="650" border="1" cellspacing="0" cellpadding="5">
+            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: white;">
             <!--테이블 생성-->
                 <tr>
                     <td>번호</td>
@@ -39,7 +39,7 @@
                     <!--취소: 목록 페이지로 이동, 쓰기: 입력 페이지로 이동-->
                 </tr>
             </table>
-        </div>
         </form>
+        </div>
     </body>
 </html>

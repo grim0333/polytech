@@ -6,17 +6,17 @@
     <head>
         <title>공지 게시판</title>
     </head>
-    <body>
-        <h1>공지사항</h1>
-        <div style="width:800;">
+    <body background="./img/desk.jpg">
+        <h1 align="center">공지사항</h1>
         <hr>
-            <table border="1" style="width:800;">
+        <div align="center">
+            <table border="1" style="width:800; background-color: #fafafa;">
 				<thead>
 					<tr>
 						<th width="50" align="center">번호</th>
 						<th width="500" align="center">제목</th>
 						<th width="100" align="center">날짜</th>
-						<th width="50" align="right">조회수</th>
+						<th width="50" align="center">조회수</th>
 					</tr>	
 				</thead>
 					<tbody>
