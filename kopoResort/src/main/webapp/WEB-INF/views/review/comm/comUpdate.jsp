@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td>내용</td>
-                    <td><textarea style="width:500px; height:250px;" name="comContent" cols="70" row="600">${comment.comContent}</textarea></td>
+                    <td><textarea style="width:500px; height:250px;" name="comContent" cols="70" rows="600">${comment.comContent}</textarea></td>
                 </tr>
             </table>
             <table>

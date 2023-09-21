@@ -6,6 +6,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>예약하기</title>
+	<script>
+	  const hypenTel = (target) => {
+	 target.value = target.value
+	   .replace(/[^0-9]/g, '')
+	   .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+	}
+	</script>
 </head>
 	<body background="./img/background.jpg">
 	<h1 align="center">예약하기</h1>
@@ -60,11 +67,13 @@
 	                </tr>
 	                <tr>
 	                    <td>전화번호</td>
-	                    <td><input type="tel" name="telnum" value=""></td>
+	                    <td>
+	                    	<input type="tel" name="telnum" value="" oninput="hypenTel(this)" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13">
+						</td>
 	                </tr>
 	                <tr>
 	                    <td>입금자명</td>
-	                    <td><input type="text" name="inName" value=""></td>
+	                    <td><input type="text" name="inName" value="" required></td>
 	                </tr>
 	                <tr>
 	                    <td>남기실말</td>

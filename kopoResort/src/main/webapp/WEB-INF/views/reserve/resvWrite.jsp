@@ -49,11 +49,10 @@
 	            <!--테이블 생성-->
 	            	<tr>
 	                    <td>성명</td>
-	                    <td><input type="hidden" name="name" value="${param.name}" readonly>${param.name}</td>
+	                    <td><input type="hidden" name="name" value="${param.name}" readonly><c:out value="${param.name}" escapeXml="true" /></td>
 	                </tr>
 	                <tr>
 	                    <td>예약일자</td>
-	                    <%-- <td><input type="date" name="resvDate" value="${param.date}" readonly>${param.date}</td> --%>
 	                    <td><input type="hidden" name="resvDate" value="${param.date}" readonly>${param.date}</td>
 	                </tr>
 	                <tr>
@@ -62,7 +61,7 @@
 	                </tr>
 	                <tr>
 	                    <td>주소</td>
-	                    <td><input type="hidden" name="addr" value="${param.addr}" readonly>${param.addr}</td>
+	                    <td><input type="hidden" name="addr" value="${param.addr}" readonly><c:out value="${param.addr}" escapeXml="true" /></td>
 	                </tr>
 	                <tr>
 	                    <td>전화번호</td>
@@ -70,11 +69,11 @@
 	                </tr>
 	                <tr>
 	                    <td>입금자명</td>
-	                    <td><input type="hidden" name="inName" value="${param.inName}" readonly>${param.inName}</td>
+	                    <td><input type="hidden" name="inName" value="${param.inName}" readonly><c:out value="${param.inName}" escapeXml="true" /></td>
 	                </tr>
 	                <tr>
 	                    <td>남기실말</td>
-	                    <td><input type="hidden" name="comment" value="${param.comment}" readonly>${param.comment}</td>
+	                    <td><input type="hidden" name="comment" value="${param.comment}" readonly><c:out value="${param.comment}" escapeXml="true" /></td>
 	                </tr>
 	                <tr>
 	                    <td>신청일자</td>

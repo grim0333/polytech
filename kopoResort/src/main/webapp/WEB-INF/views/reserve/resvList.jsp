@@ -77,21 +77,21 @@
 			        		<c:when test="${row[4] == 0}">
 			        			<a href="javascript:goPost('${dateStr}','1')">예약가능</a>
 				        	</c:when>
-				        <c:otherwise><b>${row[1]}</b></c:otherwise>
+				        <c:otherwise><b><c:out value="${row[1]}" escapeXml="true" /></b></c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
 			        		<c:when test="${row[5] == 0}">
 			        			<a href="javascript:goPost('${dateStr}','2')">예약가능</a>
 				        	</c:when>
-				        <c:otherwise><b>${row[2]}</b></c:otherwise>
+				        <c:otherwise><b><c:out value="${row[2]}" escapeXml="true" /></b></c:otherwise>
 				    	</c:choose>
 				    </td>
 			        <td><c:choose>
 			        		<c:when test="${row[6] == 0}">
 			        			<a href="javascript:goPost('${dateStr}','3')">예약가능</a>
 				        	</c:when>
-				        <c:otherwise><b>${row[3]}</b></c:otherwise>
+				        <c:otherwise><b><c:out value="${row[3]}" escapeXml="true" /></b></c:otherwise>
 				    	</c:choose>
 				    </td>
 			    </tr>

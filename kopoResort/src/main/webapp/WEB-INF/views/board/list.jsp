@@ -23,7 +23,7 @@
 						<c:forEach items="${list.content}" var="list">
 							<tr>
 								<td width="50" align="center">${list.id}</td>
-								<td width="400" align="left"><a href="read?key=${list.id}">${list.title}</a></td> 
+								<td width="400" align="left"><a href="read?key=${list.id}"><c:out value="${list.title}" escapeXml="true" /></a></td> 
 		 				 		<td width="100" align="center">${list.date}</td>
 								<td width="50" align="center">${list.viewcnt}</td>
 							</tr>

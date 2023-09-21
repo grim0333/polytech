@@ -33,7 +33,7 @@
                 </tr>
                 <tr>
                     <td>내용</td>
-                    <td><textarea style="width:500px; height:250px;" name="content" cols="70" row="600">${read.content}</textarea></td>
+                    <td><textarea style="width:500px; height:250px;" name="content" cols="70" rows="600">${read.content}</textarea></td>
                 </tr>
             </table>
             <table>
