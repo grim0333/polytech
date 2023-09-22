@@ -65,7 +65,7 @@
         <div align="center" style="margin-top: 100px;">
             <img src="./img/main.jpg" width="400" height="350">
             <br>
-            <h2> 리조트 </h2>
+            <h2> Rest.Rest.리조트 </h2>
             <br>
             <br>
             <p><%=msg %></p>
