@@ -54,7 +54,7 @@
         <hr>
         <div style="width:800;" align="center">
             <table border="1" style="width:800; background-color: #fafafa">
-				<tr align="center">
+				<tr align="center" style="background-color: #7dc5fd">
 					<td width="200"><b>예약일자</b></td>
 					<td width="200"><b>VIP룸</b></td>
 					<td width="200"><b>일반룸</b></td>

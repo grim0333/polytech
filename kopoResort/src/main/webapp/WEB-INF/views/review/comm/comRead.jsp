@@ -5,14 +5,14 @@
 <!--c:out 이스케이프 문 사용을 위해 외부 라이브러리에서 호출-->
 <html>
     <head>
-    <script>
-	function del(id) {
-		var chk = confirm("정말 삭제하시겠습니까?");
-		if (chk) {
-			location.href='/commDelete?key='+id;
+	    <script>
+		function del(id) {
+			var chk = confirm("정말 삭제하시겠습니까?");
+			if (chk) {
+				location.href='/commDelete?key='+id;
+			}
 		}
-	}	
-	</script>
+		</script>
         <title>글 보기</title>
     </head>
     <body background="./img/desk.jpg">
@@ -22,19 +22,20 @@
         <form method="post" name="fm">
         <!--폼 생성-->
         
-            <table width="800" border="1" cellspacing="0" cellpadding="5" style="background-color: white;">
+            <table width="800" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
             <!--테이블 생성-->
-                <tr>
-                    <td width="70">번호</td>
-                    <td colspan="3">${comment.comId}</td>
-                </tr>
                 <tr>
                     <td width="70">제목</td>
                     <td colspan="3"><c:out value="${comment.comTitle}" escapeXml="true" /></td>
                     <!--c:out 이스케이프 문을 통해 HTML나 JS 태그구문이 구현되지 않도록 제한-->
                 </tr>
                 <tr>
-                    <td width="70">일자</td>
+                    <td width="70">작성자</td>
+                    <td colspan="3"><c:out value="${comment.comUser}" escapeXml="true" /></td>
+                    <!--c:out 이스케이프 문을 통해 HTML나 JS 태그구문이 구현되지 않도록 제한-->
+                </tr>
+                <tr>
+                    <td width="70">날짜</td>
                     <td colspan="3">${comment.comDate}</td>
                 </tr>
                 <tr>

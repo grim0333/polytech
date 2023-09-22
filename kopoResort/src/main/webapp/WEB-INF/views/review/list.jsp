@@ -5,6 +5,14 @@
 <html>
     <head>
         <title> 이용후기 게시판</title>
+       	<style type='text/css'>
+			content:{font-size: 15; text-align: left; text-decoration: none; color:black}
+			a:link{text-decoration: none; color:black}
+			a:visited{text-decoration: none; color: #056466}
+			a:hover{text-decoration:underline; color: #0be0e5}
+			a:active{text-decoration: none;}
+			comm:{border-top: 0px; border-bottom: 0px}
+         </style>
     </head>
     <body background="./img/desk.jpg">
         <h1 align="center">이용후기 게시판</h1>
@@ -12,28 +20,32 @@
         <div align="center">
             <table border="1" style="width:800; background-color: #fafafa;">
 				<thead>
-					<tr>
+					<tr height="50">
 						<th width="50" align="center">번호</th>
 						<th width="500" align="center">제목</th>
+						<th width="80" align="center">작성자</th>
 						<th width="100" align="center">날짜</th>
 						<th width="50" align="center">조회수</th>
 					</tr>	
 				</thead>
 				<tbody>
-					<c:forEach items="${list.content}" var="list">
-						<tr>
-							<td width="50" align="center">${list.id}</td>
-							<td width="400" align="left"><a href="/revRead?key=${list.id}"><c:out value="${list.title}" escapeXml="true" /></a></td> 
+					<c:set var="currentPage" value="${param.page != null ? param.page : 0}" />
+					<c:forEach items="${list.content}" var="list" varStatus="i">
+						<tr height="30" id="content">
+							<td width="50" align="center">${cnt - (currentPage*20) - i.index}</td>
+							<td width="400" align="left"><a href="/revRead?key=${list.id}"><c:out value="${list.title}" escapeXml="true" /></a></td>
+	 				 		<td width="80" align="center">${list.user}</td> 
 	 				 		<td width="100" align="center">${list.date}</td>
 							<td width="50" align="center">${list.viewcnt}</td>
 						</tr>
 						<c:if test="${not empty list.comments}">
 				            <tr>
 				            <c:forEach items="${list.comments}" var="comment">
-				                <tr>
+				                <tr id="content" id="comm">
 				                    <td width="50" align="center"></td>
 									<td width="400" align="left"><a href="/commRead?key=${comment.comId}">
-												&nbsp;=&gt;<c:out value="${comment.comTitle}" escapeXml="true" /></a></td> 
+											&nbsp;└&gt;&nbsp;<c:out value="${comment.comTitle}" escapeXml="true" /></a></td>
+	 				 				<td width="80" align="center">${comment.comUser}</td>
 			 				 		<td width="100" align="center">${comment.comDate}</td>
 									<td width="50" align="center">${comment.comViewCnt}</td>
 				                </tr>
@@ -83,7 +95,6 @@
 			</table>
         	<form action="/revList" method="get" align="center">
 				<select name="field" id="field" class="form-control form-control-sm">
-					<option value="id">번호</option>
 					<option value="title">제목</option>
 					<option value="content">내용</option>
 				</select> 

@@ -37,12 +37,10 @@ public class ReviewController {
 	public String revList(Model model, @RequestParam(required = false, defaultValue="0", value = "page") int page,
 									@RequestParam(required = false, defaultValue = "") String field,
 									@RequestParam(required = false, defaultValue = "") String word) throws Exception {
-		Pageable pageR = PageRequest.of(page, 10, Sort.by(Direction.DESC,"id"));
+		Pageable pageR = PageRequest.of(page, 20, Sort.by(Direction.DESC,"id"));
 		Page<ReviewItem> pages = reviewServ.pageList(pageR);
 		
-		if(field.equals("id")) {
-			pages = reviewRepo.findById(Long.parseLong(word), pageR);
-		}else if(field.equals("title")){
+		if(field.equals("title")){
 			pages = reviewRepo.findByTitleContaining((String)word, pageR);
 		}else if(field.equals("content")){
 			pages = reviewRepo.findByContentContaining((String)word, pageR);
@@ -50,11 +48,12 @@ public class ReviewController {
 		
 		int pageNumber= pages.getPageable().getPageNumber();
 		int totalPage = pages.getTotalPages();
-		int pageBlock = 10; //블럭의 수 1, 2, 3, 4, 5	
+		int pageBlock = 20; //블럭의 수 1, 2, 3, 4, 5	
 		int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
 		int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
 		endBlockPage= totalPage<endBlockPage? totalPage:endBlockPage;
-		
+		long listCnt = reviewRepo.count();
+		model.addAttribute("cnt", listCnt);
 		model.addAttribute("list", pages);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("startBlockPage", startBlockPage);

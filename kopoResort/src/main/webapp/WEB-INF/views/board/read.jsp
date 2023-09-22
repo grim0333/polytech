@@ -24,16 +24,12 @@
             <table width="800" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
             <!--테이블 생성-->
                 <tr>
-                    <td width="70">번호</td>
-                    <td colspan="3">${read.id}</td>
-                </tr>
-                <tr>
                     <td width="70">제목</td>
                     <td colspan="3"><c:out value="${read.title}" escapeXml="true" /></td>
                     <!--c:out 이스케이프 문을 통해 HTML나 JS 태그구문이 구현되지 않도록 제한-->
                 </tr>
                 <tr>
-                    <td width="70">일자</td>
+                    <td width="70">날짜</td>
                     <td colspan="3">${read.date}</td>
                 </tr>
                 <tr>

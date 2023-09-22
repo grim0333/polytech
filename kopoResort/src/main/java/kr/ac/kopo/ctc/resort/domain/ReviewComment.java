@@ -21,6 +21,9 @@ public class ReviewComment {
 	@Column
     private String comContent;
 
+	@Column
+	private String comUser;
+	
     @Column
     private String comDate;
 
@@ -53,6 +56,14 @@ public class ReviewComment {
 
 	public void setComContent(String comContent) {
 		this.comContent = comContent;
+	}
+
+	public String getComUser() {
+		return comUser;
+	}
+
+	public void setComUser(String comUser) {
+		this.comUser = comUser;
 	}
 
 	public String getComDate() {

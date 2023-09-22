@@ -5,23 +5,22 @@
 <html>
 <head>
     <title>로그인</title>
-   <!--  <style>
-            body {
-              background-image: url('./img/wall.jpg'); /* 배경 이미지 경로 설정 */
-              background-position: center; /* 이미지를 가운데로 정렬 */
-              background-repeat: no-repeat; /* 이미지 반복 없음 */
-              background-attachment: fixed; /* 이미지 스크롤 고정 */
-            }
-          </style> -->
 </head>
 <body background="./img/wall.jpg">
-    <div align="center">
+    <div align="center" style="margin-top:300px">
         <% if ("yes".equals(session.getAttribute("login_ok"))) { %>
-        	<br><br><br><br><br><br><br><br><br><br>
             <h2>관리자 인증 상태입니다.</h2>
-            <p>관리자 '<%= session.getAttribute("login_id") %>' 인증됨</p>
-            <p><input type="button" value="관리자 페이지로 이동" onclick="location.href='/admView'" /></p>
-            <p><input type="button" value="로그아웃" Onclick="location.href='/admLogOut'"></p>
+            <table style="border-collapse: separate; border-spacing: 0; background-color: white; height: 200px; width: 300px; border: 1px solid black;">
+	            <tr height="120">
+	           	 	<td align="center">관리자 <b>'<%= session.getAttribute("login_id") %>'</b> 인증됨</td>
+	       	 	</tr>
+	       	 	<tr>
+		            <td align="center"><input type="button" value="관리자 페이지로 이동" onclick="location.href='/admView'" /></td>
+		        </tr>
+		        <tr>
+		            <td align="center"><input type="button" value="로그아웃" Onclick="location.href='/admLogOut'"></td>
+		        </tr>
+            </table>
         <% } else { %>
             <h2 style="margin-top: 250px;">관리자 로그인</h2>
             <br>

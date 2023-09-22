@@ -17,6 +17,8 @@ public class ResortDomain {
 	@Column
 	private String content;
 	@Column
+	private String user;
+	@Column
 	private String date;
 	@Column
 	private Integer viewcnt;
@@ -38,6 +40,12 @@ public class ResortDomain {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
 	}
 	public String getDate() {
 		return date;
