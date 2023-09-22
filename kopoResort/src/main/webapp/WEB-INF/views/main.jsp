@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ page import="java.text.DateFormat, java.util.Date" %>
@@ -50,12 +51,9 @@
 	        long conv = new Long(lastDate.getValue()).longValue();
 	        // 방문시간을 출력할 수 있도록 msg 변수에 저장
 	        Date date = new Date(conv);
-	        String year = date.getYear() + 1900 + "년 ";
-	        String month = date.getMonth() + 1 + "월 ";
-	        String day = date.getDay() + "일 ";
-	        String hour = date.getHours() + "시 ";
-	        String minute = date.getMinutes() + "분";
-	        msg = "당신의 마지막 방문 : " + year + month + day + hour + minute;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
+            msg = "당신의 마지막 방문 : " + dateFormat.format(date);
+	        
 	        // 쿠키에 새 값을 추가
 	        lastDate.setValue(newValue);
 	        // 쿠키를 추가

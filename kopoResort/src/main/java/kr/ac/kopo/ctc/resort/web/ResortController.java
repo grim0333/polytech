@@ -53,9 +53,7 @@ public class ResortController {
 		Pageable pageR = PageRequest.of(page, 10, Sort.by(Direction.DESC,"id"));
 		Page<ResortDomain> pages = serv.pageList(pageR);
 		
-		if(field.equals("id")) {
-			pages = repo.findById(Long.parseLong(word), pageR);
-		}else if(field.equals("title")){
+		if(field.equals("title")){
 			pages = repo.findByTitleContaining((String)word, pageR);
 		}else if(field.equals("content")){
 			pages = repo.findByContentContaining((String)word, pageR);
@@ -67,7 +65,8 @@ public class ResortController {
 		int startBlockPage = ((pageNumber)/pageBlock)*pageBlock+1; //현재 페이지가 7이라면 1*5+1=6
 		int endBlockPage = startBlockPage+pageBlock-1; //6+5-1=10. 6,7,8,9,10해서 10.
 		endBlockPage= totalPage<endBlockPage? totalPage:endBlockPage;
-		
+		long listCnt = repo.count();
+		model.addAttribute("cnt", listCnt);
 		model.addAttribute("list", pages);
 		model.addAttribute("totalPage", totalPage);
 		model.addAttribute("startBlockPage", startBlockPage);

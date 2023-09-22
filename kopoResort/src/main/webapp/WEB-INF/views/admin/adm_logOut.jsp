@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <title>로그아웃</title>
 </head>
-<body>
+<body background="./img/wall.jpg">
 <%
 	session.invalidate();
 %>

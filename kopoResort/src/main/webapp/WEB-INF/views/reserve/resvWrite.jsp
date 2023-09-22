@@ -9,10 +9,10 @@
 <meta charset="utf-8">
 <title> 예약확인 </title>
 </head>
-	<body>
-	<h1>예약확인</h1>
-		<div style="width:900;">
+	<body background="./img/background.jpg">
+	<h1 align="center">예약확인</h1>
 		<hr>
+		<div align="center" style="width:900; margin-top: 100px;">
 			<form method="post" action="/resvUpdate">
 	        <!--폼 생성-->
 	        	<%
