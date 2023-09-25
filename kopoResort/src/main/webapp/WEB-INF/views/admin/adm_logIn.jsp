@@ -10,8 +10,8 @@
     <div align="center" style="margin-top:300px">
         <% if ("yes".equals(session.getAttribute("login_ok"))) { %>
             <h2>관리자 인증 상태입니다.</h2>
-            <table style="border-collapse: separate; border-spacing: 0; background-color: white; height: 200px; width: 300px; border: 1px solid black;">
-	            <tr height="120">
+            <table style="border-collapse: separate; border-spacing: 0; background-color: white; height: 150px; width: 300px; border: 1px solid black;">
+	            <tr height="70">
 	           	 	<td align="center">관리자 <b>'<%= session.getAttribute("login_id") %>'</b> 인증됨</td>
 	       	 	</tr>
 	       	 	<tr>
@@ -25,7 +25,7 @@
             <h2 style="margin-top: 250px;">관리자 로그인</h2>
             <br>
             <form method="post" action="/admLogChk">
-                <table border="1">
+                <table style="border-collapse: separate; border-spacing: 0; background-color: white; height: 120px; width: 300px; border: 1px solid black;">
                     <tr align="center">
                         <td>아이디</td>
                         <td><input type="text" name="id"></td>

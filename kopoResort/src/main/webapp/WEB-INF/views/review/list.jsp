@@ -18,9 +18,9 @@
         <h1 align="center">이용후기 게시판</h1>
         <hr>
         <div align="center">
-            <table border="1" style="width:800; background-color: #fafafa;">
+            <table border="1" style="width:800; border: 2px solid black; border-collapse:collapse; background-color: #fafafa;">
 				<thead>
-					<tr height="50">
+					<tr height="50" style="border: 2px solid black; background-color: #7dc5fd">
 						<th width="50" align="center">번호</th>
 						<th width="500" align="center">제목</th>
 						<th width="80" align="center">작성자</th>
@@ -41,7 +41,7 @@
 						<c:if test="${not empty list.comments}">
 				            <tr>
 				            <c:forEach items="${list.comments}" var="comment">
-				                <tr id="content" id="comm">
+				                <tr id="comm" height="30">
 				                    <td width="50" align="center"></td>
 									<td width="400" align="left"><a href="/commRead?key=${comment.comId}">
 											&nbsp;└&gt;&nbsp;<c:out value="${comment.comTitle}" escapeXml="true" /></a></td>
