@@ -45,9 +45,7 @@
 					document.body.appendChild(form);
 					form.submit();
 	    	}
-	    	function date(curDate){
-	    		
-	    	}
+
 	    	function dateColor(dayStr){
 	    		 if (dayStr.equals("토")) {
                      cssClass = "blue-text";

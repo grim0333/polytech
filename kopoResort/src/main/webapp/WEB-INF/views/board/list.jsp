@@ -17,9 +17,9 @@
         <h1 align="center">공지사항</h1>
         <hr>
         <div align="center">
-            <table border="1" style="width:800; background-color: #fafafa;">
+            <table border="1" style="width:800; border: 2px solid black; border-collapse:collapse; background-color: #fafafa;">
 				<thead>
-					<tr height="50">
+					<tr height="50" style="border: 2px solid black; background-color: #7dc5fd">
 						<th width="50" align="center">번호</th>
 						<th width="500" align="center">제목</th>
 						<th width="80" align="center">작성자</th>
