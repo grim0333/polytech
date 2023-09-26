@@ -57,17 +57,17 @@
     </head>
     <body background="./img/wall.jpg">
         <h1 align="center">예약현황 - 관리자</h1>
-        <div style="width:800;" align="center">
+        <div style="width:1100;" align="center">
         <hr>
-            <table border="1" style="width:800; background-color: white">
-				<tr align="center" style="background-color: #7dc5fd">
+            <table border="1" style="width:1050; border: 2px solid black; border-collapse:collapse; background-color: white">
+				<tr align="center" height="60" style="background-color: #7dc5fd">
 					<td width="200"><b>예약일자</b></td>
-					<td width="200"><b>VIP룸</b></td>
-					<td width="200"><b>일반룸</b></td>
-					<td width="200"><b>싱글룸</b></td>
+					<td width="300"><b>VIP룸</b></td>
+					<td width="300"><b>일반룸</b></td>
+					<td width="300"><b>싱글룸</b></td>
 				</tr>
 	            <c:forEach items="${list}" var="row">
-			    <tr align="center">
+			    <tr align="center" height="40">
 			        <c:set var="date" value="${row[0]}" />
 				    <c:set var="dateStr"><fmt:formatDate pattern="yyyy-MM-dd" value="${date}" /></c:set>
 					<c:set var="dayStr"><fmt:formatDate pattern="E" value="${date}" /></c:set>
@@ -78,7 +78,7 @@
 				            <c:otherwise></c:otherwise>
 				        </c:choose>
 				    </c:set>
-			        <td class="${cssClass}">${dateStr}(${dayStr})</td>
+			        <td style="background-color: #f0f0f0" class="${cssClass}">${dateStr}(${dayStr})</td>
 			        <td><c:choose>
 			        		<c:when test="${row[4] == 0}">예약없음</c:when>
 				        <c:otherwise><a href="javascript:goPost('${dateStr}','1')">${row[1]}</a></c:otherwise>

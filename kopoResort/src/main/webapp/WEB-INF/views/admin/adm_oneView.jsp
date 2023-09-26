@@ -8,6 +8,9 @@
 <head>
 <meta charset="utf-8">
 	<title>예약조회(Admin) </title>
+	<style>
+		#field{background-color: #f0f0f0;}
+	</style>
 	<script>
 	    function submitForm(action) {
 	        var form = document.getElementById("myForm");
@@ -56,45 +59,45 @@
 	            <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: white">
 	            <!--테이블 생성-->
 	            	<tr>
-	                    <td>성명</td>
+	                    <td id="field">성명</td>
 	                    <td><input type="text" name="name" value="${view.name}"></td>
 	                </tr>
 	                <tr>
-	                    <td>예약일자</td>
+	                    <td id="field">예약일자</td>
 	                    <td> <fmt:formatDate value="${view.resvDate}" pattern="yyyy-MM-dd" var="resvForm" />
                 			<input type="date" name="resvDate" value="${resvForm}" readonly></td>
 	                </tr>
 	                <tr>
-	                    <td>예약방</td>
+	                    <td id="field">예약방</td>
 	                    <td>
 	                    	<input type="hidden" name="room" value="${view.room}" readonly><%=roomStr %>
 						</td>
 	                </tr>
 	                <tr>
-	                    <td>주소</td>
+	                    <td id="field">주소</td>
 	                    <td><input type="text" name="addr" value="${view.addr}"></td>
 	                </tr>
 	                <tr>
-	                    <td>전화번호</td>
+	                    <td id="field">전화번호</td>
 	                    <td>
 	                    	<input type="tel" name="telnum" value="${view.telnum}" oninput="hypenTel(this)" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13">
 	                    </td>
 	                </tr>
 	                <tr>
-	                    <td>입금자명</td>
+	                    <td id="field">입금자명</td>
 	                    <td><input type="text" name="inName" value="${view.inName}"></td>
 	                </tr>
 	                <tr>
-	                    <td>남기실말</td>
+	                    <td id="field">남기실말</td>
 	                    <td><input type="text" name="comment" value="${view.comment}" readonly></td>
 	                </tr>
 	                <tr>
-	                    <td>신청일자</td>
+	                    <td id="field">신청일자</td>
 	                    <td><fmt:formatDate value="${view.writeDate}" pattern="yyyy-MM-dd" var="wrtForm" />
                 			<input type="text" name="writeDate" value="${wrtForm}" readonly></td>
 	                </tr>
 	                <tr>
-	                    <td>진행상황</td>
+	                    <td id="field">진행상황</td>
 	                    <td><input type="text" name="processing" value="${view.processing}"></td>
 	                </tr>
 	                <tr align="center">
