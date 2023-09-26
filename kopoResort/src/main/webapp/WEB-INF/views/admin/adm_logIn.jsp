@@ -35,7 +35,7 @@
                         <td><input type="password" name="passwd"></td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center"><input type="submit" value="로그인">
+                        <td colspan="2" align="center" height="40px"><input type="submit" value="로그인">
                         <c:choose>
 						    <c:when test="${check eq true}">
 						    </c:when>

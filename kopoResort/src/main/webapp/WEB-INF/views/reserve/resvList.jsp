@@ -15,6 +15,12 @@
 	        .red-text {
 	            color: red;
 	        }
+	        #open{font-style: italic;}
+                tbody{text-align: center;}
+                a:link{text-decoration: none; color:black}
+                a:visited{text-decoration: none;}
+                a:hover{text-decoration: underline; color:#00a3a3;}
+                a:active{text-decoration: none;}
 	    </style>
 	    <script>
 	    	function goPost(dateStr, num){
@@ -52,16 +58,19 @@
     <body background="./img/background.jpg">
         <h1 align="center">예약상황</h1>
         <hr>
-        <div style="width:800;" align="center">
-            <table border="1" style="width:800; background-color: #fafafa">
-				<tr align="center" style="background-color: #7dc5fd">
-					<td width="200"><b>예약일자</b></td>
-					<td width="200"><b>VIP룸</b></td>
-					<td width="200"><b>일반룸</b></td>
-					<td width="200"><b>싱글룸</b></td>
-				</tr>
+        <div style="width:1100;" align="center">
+            <table border="1" style="width:1050; border: 2px solid black; border-collapse:collapse; background-color: #fafafa">
+				<thead style="color:white">
+					<tr align="center" height="60" style="background-color: #2c7fc9" >
+						<td width="150">예약일자</td>
+						<td width="300">VIP룸</td>
+						<td width="300">디럭스룸</td>
+						<td width="300">일반룸</td>
+					</tr>
+				</thead>
+				<tbody>
 	            <c:forEach items="${list}" var="row">
-			    <tr align="center">
+			    <tr align="center" height="40" id="field">
 			        <c:set var="date" value="${row[0]}" />
 				    <c:set var="dateStr"><fmt:formatDate pattern="yyyy-MM-dd" value="${date}" /></c:set>
 					<c:set var="dayStr"><fmt:formatDate pattern="E" value="${date}" /></c:set>
@@ -72,28 +81,34 @@
 				            <c:otherwise></c:otherwise>
 				        </c:choose>
 				    </c:set>
-			        <td class="${cssClass}">${dateStr}(${dayStr})</td>
-			        <td><c:choose>
+			        <td style="background-color: #f0f0f0" class="${cssClass}">${dateStr}(${dayStr})</td>
+			        <c:choose>
 			        		<c:when test="${row[4] == 0}">
-			        			<a href="javascript:goPost('${dateStr}','1')">예약가능</a>
+			        			<td id="open"><a href="javascript:goPost('${dateStr}','1')">예약가능</a></td>
 				        	</c:when>
-				        <c:otherwise><b><c:out value="${row[1]}" escapeXml="true" /></b></c:otherwise>
+				        	<c:otherwise>
+				        		<td><b><c:out value="${row[1]}" escapeXml="true" /></b></td>
+				        	</c:otherwise>
 				    	</c:choose>
-				    </td>
-			        <td><c:choose>
+				    
+			        <c:choose>
 			        		<c:when test="${row[5] == 0}">
-			        			<a href="javascript:goPost('${dateStr}','2')">예약가능</a>
+			        			<td id="open"><a href="javascript:goPost('${dateStr}','2')">예약가능</a></td>
 				        	</c:when>
-				        <c:otherwise><b><c:out value="${row[2]}" escapeXml="true" /></b></c:otherwise>
+				        	<c:otherwise>
+				        		<td><b><c:out value="${row[2]}" escapeXml="true" /></b></td>
+				        	</c:otherwise>
 				    	</c:choose>
-				    </td>
-			        <td><c:choose>
+				    
+			        <c:choose>
 			        		<c:when test="${row[6] == 0}">
-			        			<a href="javascript:goPost('${dateStr}','3')">예약가능</a>
+			        			<td id="open"><a href="javascript:goPost('${dateStr}','3')">예약가능</a></td>
 				        	</c:when>
-				        <c:otherwise><b><c:out value="${row[3]}" escapeXml="true" /></b></c:otherwise>
+				        	<c:otherwise>
+				        		<td><b><c:out value="${row[3]}" escapeXml="true" /></b>
+				        	</c:otherwise>
 				    	</c:choose>
-				    </td>
+				    
 			    </tr>
 				</c:forEach>
 	            <tr>
@@ -101,6 +116,7 @@
 	            		<input type="button" value="초기화" onclick="location.href='/generateData'">
 	            	</td>
 	            </tr>
+	            </tbody>
 			</table>
 		</div>
 	</body>
