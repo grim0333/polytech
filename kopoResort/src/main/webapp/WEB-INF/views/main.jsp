@@ -6,15 +6,7 @@
 <html>
     <head>
         <title> 리조트 </title>
-        <style>
-            body {
-              background-image: url('./img/background.jpg'); /* 배경 이미지 경로 설정 */
-              background-position: center; /* 이미지를 가운데로 정렬 */
-              background-repeat: no-repeat; /* 이미지 반복 없음 */
-              background-attachment: fixed; /* 이미지 스크롤 고정 */
-            }
-          </style>
-	          <%
+        <%
 	    Cookie lastDate = null;
 	   
 	    // 화면에 출력할 메시지를 저장할 문자열 변수
@@ -59,7 +51,7 @@
 	        // 쿠키를 추가
 	        response.addCookie(lastDate);
 	    }
-	%>
+		%>
     </head>
     <body>
         <div align="center" style="margin-top: 100px;">

@@ -8,8 +8,8 @@
          	<style type='text/css'>
                	content:{font-size: 15; text-align: left; text-decoration: none; color:black}
 				a:link{text-decoration: none; color:black}
-              	a:visited{text-decoration: none; color: #056466}
-               	a:hover{text-decoration:underline; color: #0be0e5}
+              	a:visited{text-decoration: none; color: black}
+               	a:hover{text-decoration:underline; color: #085c83}
                	a:active{text-decoration: none;}
            </style>
     </head>
@@ -19,7 +19,7 @@
         <div align="center">
             <table border="1" style="width:800; border: 2px solid black; border-collapse:collapse; background-color: #fafafa;">
 				<thead>
-					<tr height="50" style="border: 2px solid black; background-color: #7dc5fd">
+					<tr height="50" style="border: 2px solid black; background-color: #e3e3e3">
 						<th width="50" align="center">번호</th>
 						<th width="500" align="center">제목</th>
 						<th width="80" align="center">작성자</th>
