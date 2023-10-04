@@ -18,7 +18,7 @@
 	</style>
 </head>
 	<body background="./img/background.jpg">
-	<h1 align="center">예약하기</h1>
+		<h1 align="center">예약하기</h1>
 		<hr>
 		<div align="center" style="margin-top:40px;">
 			<img src="./img/reserve.jpg">
