@@ -22,16 +22,17 @@
 	            room = "일반룸";
 	        }
 	    %>
-	            
 	            <h1>예약을 실패했습니다</h1>
 	            <p><b>[<%= date %>] '<%= room %>'</b></p>
 	            <p>이미 예약되었습니다</p>
+	            <br>
 	            <input type="button" value="예약현황으로 돌아가기" onclick="location.href='/resvList'">
-	        
 	    <%
 	    } else {
 	    %>
 	        <h1>에러가 발생했습니다</h1>
+	        <br>
+	        <input type="button" value="메인으로 돌아가기" onclick="location.href='/main'">
 	    <%
 	    }
 	    %>
