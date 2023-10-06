@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> 예약상황 </title>
+        <title> 예약현황 </title>
         <style>
 	        .blue-text {
 	            color: blue;
@@ -56,7 +56,7 @@
 	    </script>
     </head>
     <body background="./img/background.jpg">
-        <h1 align="center">예약상황</h1>
+        <h1 align="center">예약현황</h1>
         <hr>
         <div style="width:1100;" align="center">
             <table border="1" style="width:1050; border: 2px solid black; border-collapse:collapse; background-color: #fafafa">

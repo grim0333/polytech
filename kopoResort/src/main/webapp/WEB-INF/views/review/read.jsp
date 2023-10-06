@@ -33,6 +33,10 @@
                     <td colspan="3">${read.date}</td>
                 </tr>
                 <tr>
+                    <td width="70">작성자</td>
+                    <td colspan="3"><c:out value="${read.user}" escapeXml="true" /></td>
+                </tr>
+                <tr>
                     <td width="70">조회수</td>
                     <td colspan="3">${read.viewcnt}</td>
                 </tr>
@@ -49,17 +53,14 @@
                 <tr>
                     
                     <% if ("yes".equals(session.getAttribute("login_ok"))) { %>
-                   		<td width=700></td>
+                   		<td width=600></td>
 	                    <td><input type ="button" value="답글" onclick="location.href='/commCreate?key='+'${read.id}'"></td>
-	                    <td><input type ="button" value="목록" onclick="location.href='./revList'"></td>
-	                    <!--목록: 목록 페이지로 이동, 수정: 수정 페이지로 이동-->
-	                    <!--삭제: 삭제 페이지로 이동, 답글: 답글 페이지로 이동-->
                     <% } else { %>
                     	<td width=650></td>
-	                    <td><input type ="button" value="수정" onclick="location.href='./revModify?key='+'${read.id}'"></td>
-	                    <td><input type ="button" value="삭제" onclick="del(${read.id})"></td>
-	                    <td><input type ="button" value="목록" onclick="location.href='./revList'"></td>
 					<% } %>
+                    <td><input type ="button" value="수정" onclick="location.href='./revModify?key='+'${read.id}'"></td>
+                    <td><input type ="button" value="삭제" onclick="del(${read.id})"></td>
+                    <td><input type ="button" value="목록" onclick="location.href='./revList'"></td>
                 </tr>
             </table>
         </div>

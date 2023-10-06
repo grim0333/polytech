@@ -30,13 +30,13 @@
                     <!--c:out 이스케이프 문을 통해 HTML나 JS 태그구문이 구현되지 않도록 제한-->
                 </tr>
                 <tr>
+                    <td width="70">날짜</td>
+                    <td colspan="3">${comment.comDate}</td>
+                </tr>
+                <tr>
                     <td width="70">작성자</td>
                     <td colspan="3"><c:out value="${comment.comUser}" escapeXml="true" /></td>
                     <!--c:out 이스케이프 문을 통해 HTML나 JS 태그구문이 구현되지 않도록 제한-->
-                </tr>
-                <tr>
-                    <td width="70">날짜</td>
-                    <td colspan="3">${comment.comDate}</td>
                 </tr>
                 <tr>
                     <td width="70">조회수</td>
@@ -47,8 +47,6 @@
                     <td colspan="3" style="height:400px;">
                     <textarea style="width:100%; height:100%; resize: none; overflow-y: auto;" readonly><c:out value="${comment.comContent}" escapeXml="true" />
                     </textarea></td>
-                    <!--텍스트 입력칸을 유지하는 상태에서 입력 초과시 스크롤(세로)로 나머지를 나타낼 수 있도록 설정-->
-                    <!--c:out 이스케이프 문을 통해 HTML나 JS 태그구문이 구현되지 않도록 제한-->
                 </tr>
             </table>
             <table>

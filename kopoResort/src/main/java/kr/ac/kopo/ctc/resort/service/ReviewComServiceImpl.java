@@ -36,10 +36,6 @@ public class ReviewComServiceImpl implements ReviewComService {
 
 	@Override
 	public void comUpdate(ReviewComment up) throws Exception {
-		LocalDateTime now = LocalDateTime.now();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	    String date = now.format(formatter);
-	    up.setComDate(date);
 		dao.comUpdate(up);
 	}
 

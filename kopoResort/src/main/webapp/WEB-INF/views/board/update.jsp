@@ -10,16 +10,15 @@
     <hr>
         <div align="center">
          <form method="post" action="/update">
+         <input type="hidden" name="id" value="${read.id}" readonly>
             <table width="650" border="1" cellspacing="0" cellpadding="5" style="background-color: #fafafa;">
-            <!--테이블 생성-->
-               <tr>
-                    <td>번호</td>
-                    <td>${read.id}<input type="hidden" name="id" value="${read.id}" readonly></td>
-                    <!--hidden으로 입력을 제한 후 값을 그대로 input을 통해 submit하도록 설정-->
-                </tr>
                 <tr>
                     <td>제목</td>
                     <td><input type="text" name="title" value="${read.title}"></td>
+                </tr>
+                 <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="user" value="${read.user}"></td>
                 </tr>
                 <tr>
                     <td>날짜</td>

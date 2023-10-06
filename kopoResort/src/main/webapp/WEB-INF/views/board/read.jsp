@@ -33,6 +33,10 @@
                     <td colspan="3">${read.date}</td>
                 </tr>
                 <tr>
+                    <td width="70">작성자</td>
+                    <td colspan="3"><c:out value="${read.user}" escapeXml="true" /></td>
+                </tr>
+                <tr>
                     <td width="70">조회수</td>
                     <td colspan="3">${read.viewcnt}</td>
                 </tr>
