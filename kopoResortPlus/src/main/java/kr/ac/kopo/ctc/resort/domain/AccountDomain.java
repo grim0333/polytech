@@ -18,6 +18,9 @@ public class AccountDomain {
     @Column(nullable = false)
     private String passwd;
     
+    @Column(nullable = false)
+	private String name;
+    
     @Column
 	private String addr;
 	
@@ -27,7 +30,7 @@ public class AccountDomain {
 	@Column
 	private String email;
 	
-	@Column
+	@Column(nullable = false)
 	private long adminAuth;
 
 	public Long getIdx() {
@@ -52,6 +55,14 @@ public class AccountDomain {
 
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getAddr() {

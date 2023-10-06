@@ -1,5 +1,7 @@
 package kr.ac.kopo.ctc.resort.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +18,20 @@ public class AccountDAOImpl implements AccountDAO {
 		AccountDomain ad = accRepo.findByAdminIdAndPasswd(id, passwd);
 		return ad;
 	}
+
+	@Override
+	public List<AccountDomain> AccList() {
+		return accRepo.findAll();
+	}
+
+	@Override
+	public void saveAcc(AccountDomain acc) {
+		accRepo.save(acc);
+	}
+
+	@Override
+	public void delAcc(Long idx) {
+		accRepo.deleteByIdx(idx);
+	}
+	
 }

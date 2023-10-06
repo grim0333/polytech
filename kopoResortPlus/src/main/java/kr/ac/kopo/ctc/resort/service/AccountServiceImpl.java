@@ -30,10 +30,10 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void genAcc() {
 		AccountDomain acc = new AccountDomain();
-		String id = "admin";
-		String pass = "1111";
-		acc.setId(id);
-		acc.setPasswd(pass);
+		acc.setId("admin");
+		acc.setName("관리자");
+		acc.setPasswd("admin");
+		acc.setAdminAuth(1);
 		accRepo.save(acc);
 	}
 	
