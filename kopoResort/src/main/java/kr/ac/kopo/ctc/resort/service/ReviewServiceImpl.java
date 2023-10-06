@@ -46,10 +46,6 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public void update(ReviewItem up) throws Exception {
-		LocalDateTime now = LocalDateTime.now();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	    String date = now.format(formatter);
-	    up.setDate(date);
 		dao.update(up);
 	}
 

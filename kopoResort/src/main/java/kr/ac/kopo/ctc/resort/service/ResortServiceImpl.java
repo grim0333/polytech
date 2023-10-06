@@ -46,10 +46,6 @@ public class ResortServiceImpl implements ResortService {
 
 	@Override
 	public void update(ResortDomain up) throws Exception {
-		LocalDateTime now = LocalDateTime.now();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-	    String date = now.format(formatter);
-	    up.setDate(date);
 		dao.update(up);
 	}
 

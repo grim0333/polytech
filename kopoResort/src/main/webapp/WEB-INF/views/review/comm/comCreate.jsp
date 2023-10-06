@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.sql.*,javax.sql.*,java.io.*" %>
+<%@ page import="java.sql.*,javax.sql.*,java.io.*, java.util.Date" %>
 <html>
     <head>
         <title>새 글 입력</title>
@@ -11,6 +11,12 @@
 		    if(loginOK == null) {
 		    	response.sendRedirect(backURL);
 		    }
+	    %>
+	    <%
+	        // 현재 날짜를 가져오기
+	        Date currentDate = new Date();
+	        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+	        String date = sdf.format(currentDate);
 	    %>
     </head>
     <body background="./img/desk.jpg">
@@ -24,6 +30,10 @@
                 <tr>
                     <td>제목</td>
                     <td><input type="text" name="comTitle" value="이용후기 댓글"></td>
+                </tr>
+                <tr>
+                    <td>날짜</td>
+                    <td><%=date %></td>
                 </tr>
                 <tr>
                     <td>작성자</td>

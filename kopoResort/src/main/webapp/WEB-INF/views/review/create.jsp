@@ -25,12 +25,12 @@
                     <td><input type="text" name="title" value="이용후기"></td>
                 </tr>
                 <tr>
-                    <td>작성자</td>
-                    <td><input type="text" name="user" value=""></td>
-                </tr>
-                <tr>
                     <td>날짜</td>
                     <td><%=date %></td>
+                </tr>
+                <tr>
+                    <td>작성자</td>
+                    <td><input type="text" name="user" value=""></td>
                 </tr>
                 <tr>
                     <td>내용</td>
