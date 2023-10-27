@@ -11,13 +11,15 @@
 		<%
 		    boolean accChk = (boolean)request.getAttribute("check");
 		    String id = (String)request.getAttribute("id");
+		    Long auth = (Long)request.getAttribute("auth");
 		    if(accChk){
-		    	session.setAttribute("login_ok", "yes");
-		    	session.setAttribute("login_id", id);
-		    	response.sendRedirect("/admView");
+		    	session.setAttribute("login_stat", "in");
+		    	session.setAttribute("id", id);
+		    	session.setAttribute("admin_auth", auth);
+		    	response.sendRedirect("/main");
 		    }else{
 		    	out.println("<h2 align='center'>아이디 또는 패스워드 오류.</h2>");
-		    	out.println("<input type='button' value='로그인' Onclick=\"location.href='/admLogin'\"/>");
+		    	out.println("<input type='button' value='로그인' Onclick=\"location.href='/main'\"/>");
 		    }
 		%>
 		</div>

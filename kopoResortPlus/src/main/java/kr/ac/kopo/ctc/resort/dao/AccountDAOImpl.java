@@ -15,7 +15,7 @@ public class AccountDAOImpl implements AccountDAO {
 	
 	@Override
 	public AccountDomain AccCheck(String id, String passwd) {
-		AccountDomain ad = accRepo.findByAdminIdAndPasswd(id, passwd);
+		AccountDomain ad = accRepo.findByIdAndPasswd(id, passwd);
 		return ad;
 	}
 
