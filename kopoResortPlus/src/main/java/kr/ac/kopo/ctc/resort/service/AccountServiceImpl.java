@@ -23,7 +23,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public boolean adminCheck() {
-		boolean check = accRepo.existsAny();
+		boolean check = accRepo.existsByAdminAuth(1);
 		return check;
 	}
 
@@ -32,7 +32,7 @@ public class AccountServiceImpl implements AccountService {
 		AccountDomain acc = new AccountDomain();
 		acc.setId("admin");
 		acc.setName("관리자");
-		acc.setPasswd("admin");
+		acc.setPasswd("1111");
 		acc.setAdminAuth(1);
 		accRepo.save(acc);
 	}

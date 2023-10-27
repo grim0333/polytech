@@ -38,7 +38,7 @@ public class ReserveController {
 	
     @GetMapping(value="generateData")
     public String generateData() throws ParseException {
-    	dataGenrServ.generateDataFor30Days();
+    	dataGenrServ.genDataThirty();
         return "redirect:resvList";
     }
     
@@ -80,4 +80,59 @@ public class ReserveController {
     public String errorPage(Model model) {
     	return "/errorPage";
     }
+    
+    
+    @RequestMapping(value="admView")
+    public String admView(Model model) throws Exception {
+		List<Object[]> pages = serv.listObj();
+		model.addAttribute("list", pages);
+        return "admin/adm_allView";
+    }
+	
+	@RequestMapping(value="admOneView")
+    public String admOneView(Model model, @RequestParam("date") 
+    										@DateTimeFormat(pattern = "yyyy-MM-dd") Date date, 
+    										@RequestParam("room") int room ) throws Exception {
+		ReserveItem item = serv.read(date, room);
+		model.addAttribute("view", item);
+        return "admin/adm_oneView";
+    }
+	
+	@RequestMapping(value="admOneChk")
+    public String admOneChk(Model model) {
+        return "admin/adm_update";
+    }
+	
+	@RequestMapping(value = "admUpdate", method = RequestMethod.POST)
+    public String admUp(Model model, @RequestParam("resvDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date resvDate,
+                         @RequestParam("writeDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date writeDate,
+                         @RequestParam("room") int room,
+                         @RequestParam("name") String name,
+                         @RequestParam("addr") String addr,
+                         @RequestParam("telnum") String telnum,
+                         @RequestParam("inName") String inName,
+                         @RequestParam("comment") String comment,
+                         @RequestParam("processing") int processing) throws Exception {
+			ReserveItem up = new ReserveItem();
+	        up.setName(name);
+	        up.setResvDate(resvDate);
+	        up.setRoom(room);
+	        up.setAddr(addr);
+	        up.setTelnum(telnum);
+	        up.setInName(inName);
+	        up.setComment(comment);
+	        up.setWriteDate(writeDate);
+	        up.setProcessing(processing);
+	        
+	        serv.update(up);
+	        return "redirect:admView";
+    }
+	
+	@RequestMapping(value="admDelete")
+    public String admDelete(Model model, @RequestParam("resvDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date resvDate,
+    									@RequestParam("room") int room) throws Exception {
+		serv.delete(resvDate, room);
+		return "redirect:admView";
+	}
+        
 }

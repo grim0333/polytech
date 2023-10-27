@@ -14,7 +14,7 @@
 	<div align="center">
 		<h2 style="margin-top: 250px;">로그아웃 되었습니다.</h2>
 		<br>
-		<input type='button' value='로그인 화면 돌아가기' onclick="location.href='/admLogin'">
+		<input type='button' value='돌아가기' onclick="location.href='/main'">
 	</div>
 </body>
 </html>

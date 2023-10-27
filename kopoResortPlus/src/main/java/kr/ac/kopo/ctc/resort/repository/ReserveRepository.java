@@ -38,4 +38,7 @@ public interface ReserveRepository extends JpaRepository<ReserveItem, Long> {
 	boolean existsByResvDateAfter(Date thirtyDaysLater);
 	
 	ReserveItem findByResvDateAndRoom(Date resvDate, int room);
+
+	@Query("SELECT CASE WHEN COUNT(*) > 0 THEN true ELSE false END FROM ReserveItem")
+	boolean existsAny();
 }

@@ -17,7 +17,7 @@ public class DataGenerateService {
     @Autowired
     private ReserveRepository resvRepo;
     
-    public void generateDataFor30Days() throws ParseException {
+    public void genDataThirty() throws ParseException {
         Calendar calendar = Calendar.getInstance();
 
         // 현재 날짜를 기준으로 30일 분량의 데이터 생성
