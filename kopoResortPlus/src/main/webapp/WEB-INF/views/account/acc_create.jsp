@@ -13,7 +13,7 @@
 	}
 	</script>
     </head>
-    <body background="./img/desk.jpg">
+    <body background="./img/wall.jpg">
     <h1 align="center">회원가입</h1>
     <hr>
         <form method="post" action="/accPost">
@@ -50,7 +50,7 @@
                 <tr>
                     <td width=550></td>
                     <td><input type ="submit" value="완료"></td>
-                    <td><input type ="button" value="취소" onclick="location.href='/revList'"></td>
+                    <td><input type ="button" value="취소" onclick="location.href='main'"></td>
                 </tr>
             </table>
         </div>

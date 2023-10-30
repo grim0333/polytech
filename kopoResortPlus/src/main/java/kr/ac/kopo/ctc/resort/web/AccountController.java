@@ -17,7 +17,7 @@ public class AccountController {
 	@Autowired
 	AccountRepository accRepo;
 	
-	@RequestMapping(value="accLogin")
+	@RequestMapping(value="login")
     public String admLogin(Model model) {
 		boolean check = accServ.adminCheck();
 		model.addAttribute("check", check);
@@ -62,8 +62,13 @@ public class AccountController {
 	    return "redirect:accLogin";
 	}
 	
-	@RequestMapping(value="accLogOut")
+	@RequestMapping(value="accInfo")
+    public String accInfo(Model model) {
+        return "account/acc_info";
+    }
+	
+	@RequestMapping(value="logOut")
     public String accLogOut(Model model) {
         return "account/acc_logOut";
-    }	
+    }
 }

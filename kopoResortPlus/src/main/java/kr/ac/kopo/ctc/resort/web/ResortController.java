@@ -46,6 +46,11 @@ public class ResortController {
 		return "/main";
 	}
 	
+	@GetMapping(value = "top")
+	public String top(Model model) {
+		return "/top";
+	}
+	
 	@RequestMapping(value = "list")
 	public String list(Model model, @RequestParam(required = false, defaultValue="0", value = "page") int page,
 									@RequestParam(required = false, defaultValue = "") String field,

@@ -82,6 +82,11 @@ public class ReserveController {
     }
     
     
+    @RequestMapping(value = "adminPage")
+    public String adminPage(Model model) {
+    	return "admin/adm_page";
+    }
+    
     @RequestMapping(value="admView")
     public String admView(Model model) throws Exception {
 		List<Object[]> pages = serv.listObj();
