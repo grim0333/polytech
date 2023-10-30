@@ -7,14 +7,29 @@
 <meta charset="utf-8">
 <title>로그아웃</title>
 </head>
-<body background="./img/wall.jpg">
+<script>
+	function log() {
+    	return alert("로그아웃 되었습니다.");
+  	}
+</script>
+</head>
+<body>
 <%
-	session.invalidate();
+	if(session != null){
+		session.invalidate();
 %>
-	<div align="center">
-		<h2 style="margin-top: 250px;">로그아웃 되었습니다.</h2>
-		<br>
-		<input type='button' value='돌아가기' onclick="location.href='/main'">
-	</div>
+	<script>
+	log();
+	window.onload = function() {
+		top.location.href = "index.html";
+	}
+	</script>
+<%
+	} else {
+		out.println("<h2 align='center'>로그아웃 오류.</h2>");
+    	out.println("<input type='button' value='돌아가기' Onclick=\"location.href='/main'\"/>");
+	}
+%>
+	
 </body>
 </html>
